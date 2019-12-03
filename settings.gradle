@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='Sunny Side App'
