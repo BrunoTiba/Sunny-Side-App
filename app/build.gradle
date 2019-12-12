@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: "org.jlleitschuh.gradle.ktlint"
 
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
 android {
     compileSdkVersion 28
     buildToolsVersion "29.0.0"
@@ -45,4 +47,9 @@ ktlint {
     android.set(true)
     outputColorName.set("RED")
     outputToConsole.set(true)
+}
+
+detekt {
+    toolVersion = "1.2.1"
+    config = files("../config/detekt/detekt.yml")
 }
