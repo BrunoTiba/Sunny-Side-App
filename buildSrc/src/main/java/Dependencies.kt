@@ -1,4 +1,9 @@
 object Versions {
+    const val minSdk = 23
+    const val targetSdk = 28
+    const val compileSdk = 28
+    const val buildTools = "29.0.2"
+
     const val kotlinVersion = "1.3.61"
 
     const val androidXVersion = "1.1.0"
