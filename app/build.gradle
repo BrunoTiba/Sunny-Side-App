@@ -3,18 +3,13 @@ apply plugin: 'com.android.application'
 apply from: "$rootDir/config/dependencies/android.gradle"
 apply from: "$rootDir/config/dependencies/buildTypes.gradle"
 apply from: "$rootDir/config/detekt/detekt.gradle"
-
-apply plugin: "org.jlleitschuh.gradle.ktlint"
+apply from: "$rootDir/config/ktlint/ktlint.gradle"
 
 android {
     defaultConfig {
         applicationId "com.brunotiba.sunnysideapp"
         versionCode 1
         versionName "1.0"
-    }
-
-    lintOptions {
-        abortOnError true
     }
 }
 
@@ -27,10 +22,4 @@ dependencies {
     testImplementation Dependencies.test.junit
     androidTestImplementation Dependencies.test.androidJUnit
     androidTestImplementation Dependencies.test.espresso
-}
-
-ktlint {
-    android.set(true)
-    outputColorName.set("RED")
-    outputToConsole.set(true)
 }
