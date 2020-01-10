@@ -1,34 +1,15 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
-apply plugin: "org.jlleitschuh.gradle.ktlint"
-
-apply plugin: 'io.gitlab.arturbosch.detekt'
+apply from: "$rootDir/config/dependencies/android.gradle"
+apply from: "$rootDir/config/dependencies/buildTypes.gradle"
+apply from: "$rootDir/config/detekt/detekt.gradle"
+apply from: "$rootDir/config/ktlint/ktlint.gradle"
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.0"
-
     defaultConfig {
         applicationId "com.brunotiba.sunnysideapp"
-        minSdkVersion 23
-        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    lintOptions {
-        abortOnError true
     }
 }
 
@@ -41,15 +22,4 @@ dependencies {
     testImplementation Dependencies.test.junit
     androidTestImplementation Dependencies.test.androidJUnit
     androidTestImplementation Dependencies.test.espresso
-}
-
-ktlint {
-    android.set(true)
-    outputColorName.set("RED")
-    outputToConsole.set(true)
-}
-
-detekt {
-    toolVersion = "1.2.1"
-    config = files("../config/detekt/detekt.yml")
 }
