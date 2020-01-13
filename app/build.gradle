@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 
 apply from: "$rootDir/config/dependencies/android.gradle"
-apply from: "$rootDir/config/dependencies/buildTypes.gradle"
 apply from: "$rootDir/config/detekt/detekt.gradle"
 apply from: "$rootDir/config/ktlint/ktlint.gradle"
 
@@ -11,10 +10,19 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(":data:domain")
+    implementation project(":data:remote")
     implementation Dependencies.kotlin
     implementation Dependencies.androidX.appCompat
     implementation Dependencies.androidX.core
