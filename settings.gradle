@@ -1,2 +1,5 @@
-include ':app',':data:domain', ':data:remote'
+include ':app'
+include ':data:domain'
+include ':data:remote'
+include ':data:repository'
 rootProject.name='Sunny Side App'
