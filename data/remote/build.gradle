@@ -2,11 +2,18 @@ apply from: "${rootDir}/config/dependencies/features.gradle"
 apply from: "${rootDir}/config/dependencies/android.gradle"
 
 android {
+    File file = new File("${rootDir}/api_key.txt")
+    String apiKey = "\"" + file + "\""
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    buildTypes.forEach {
+        it.buildConfigField 'String', 'WEATHER_API_KEY', "${apiKey.trim()}"
     }
 }
 
