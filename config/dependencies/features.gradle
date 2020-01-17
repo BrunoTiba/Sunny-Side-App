@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     buildTypes {
@@ -7,4 +9,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+dependencies {
+    implementation Dependencies.toothpick.di
+    kapt Dependencies.toothpick.kapt
 }
