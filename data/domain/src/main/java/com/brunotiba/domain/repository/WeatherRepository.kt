@@ -4,5 +4,5 @@ import com.brunotiba.domain.model.Forecast
 
 interface WeatherRepository {
 
-    fun getCurrentForecastByName(name: String) : Forecast
+    fun getCurrentForecastByName(name: String): Forecast
 }
