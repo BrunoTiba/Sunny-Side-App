@@ -21,6 +21,13 @@ jobs:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
+          name: Run Domain Module Unit Tests
+          command: ./gradlew :data:domain:testDebugUnitTest
+      - store_artifacts:
+          path: data/domain/build/reports
+      - store_test_results:
+          path: data/domain/build/test-results
+      - run:
           name: Run Tests
           command: ./gradlew lint test
       - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
