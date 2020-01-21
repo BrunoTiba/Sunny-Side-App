@@ -12,4 +12,7 @@ android {
 
 dependencies {
     testImplementation Dependencies.test.junit
+    testImplementation Dependencies.test.toothpick
+    testImplementation Dependencies.test.toothpickJUnit
+    testImplementation Dependencies.test.mockk
 }

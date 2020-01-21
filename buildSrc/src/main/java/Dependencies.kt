@@ -14,6 +14,7 @@ object Versions {
     const val junit = "4.12"
     const val androidJUnit = "1.1.1"
     const val espresso = "3.2.0"
+    const val mockk = "1.9"
 }
 
 object Dependencies {
@@ -39,4 +40,7 @@ object Test {
     val junit = "junit:junit:${Versions.junit}"
     val androidJUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
     val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    val toothpick = "com.github.stephanenicolas.toothpick:toothpick-testing:${Versions.toothpick}"
+    val toothpickJUnit = "com.github.stephanenicolas.toothpick:toothpick-testing-junit4:${Versions.toothpick}"
+    val mockk = "io.mockk:mockk:${Versions.mockk}"
 }

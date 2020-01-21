@@ -28,11 +28,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":data:domain")
+    implementation project(":data:repository")
     implementation project(":data:remote")
     implementation Dependencies.kotlin
     implementation Dependencies.androidX.appCompat
     implementation Dependencies.androidX.core
     implementation Dependencies.androidX.constraintLayout
+    implementation Dependencies.toothpick.di
     testImplementation Dependencies.test.junit
     androidTestImplementation Dependencies.test.androidJUnit
     androidTestImplementation Dependencies.test.espresso
