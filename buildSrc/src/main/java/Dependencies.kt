@@ -9,9 +9,12 @@ object Versions {
     const val androidXVersion = "1.1.0"
     const val constraintLayout = "1.1.3"
 
+    const val toothpick = "3.1.0"
+
     const val junit = "4.12"
     const val androidJUnit = "1.1.1"
     const val espresso = "3.2.0"
+    const val mockk = "1.9"
 }
 
 object Dependencies {
@@ -19,6 +22,7 @@ object Dependencies {
 
     val androidX = AndroidX
     val test = Test
+    val toothpick = Toothpick
 }
 
 object AndroidX {
@@ -27,8 +31,16 @@ object AndroidX {
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 }
 
+object Toothpick {
+    val di = "com.github.stephanenicolas.toothpick:ktp:${Versions.toothpick}"
+    val kapt = "com.github.stephanenicolas.toothpick:toothpick-compiler:${Versions.toothpick}"
+}
+
 object Test {
     val junit = "junit:junit:${Versions.junit}"
     val androidJUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
     val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    val toothpick = "com.github.stephanenicolas.toothpick:toothpick-testing:${Versions.toothpick}"
+    val toothpickJUnit = "com.github.stephanenicolas.toothpick:toothpick-testing-junit4:${Versions.toothpick}"
+    val mockk = "io.mockk:mockk:${Versions.mockk}"
 }
