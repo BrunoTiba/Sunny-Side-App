@@ -25,7 +25,6 @@ jobs:
           command: ./gradlew :data:domain:testDebugUnitTest
       - store_artifacts:
           path: data/domain/build/reports
-          destination: reports/
       - store_test_results:
           path: data/domain/build/test-results
       - run:
