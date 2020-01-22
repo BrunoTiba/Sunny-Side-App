@@ -24,10 +24,10 @@ jobs:
           name: Run Domain Module Unit Tests
           command: ./gradlew :data:domain:testDebugUnitTest
       - store_artifacts:
-          path: /data/domain/build/reports
+          path: data/domain/build/reports
           destination: reports/
       - store_test_results:
-          path: /data/domain/build/test-results
+          path: data/domain/build/test-results
       - run:
           name: Run Tests
           command: ./gradlew lint test
