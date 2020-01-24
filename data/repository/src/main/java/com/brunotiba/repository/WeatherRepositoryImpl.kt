@@ -2,22 +2,18 @@ package com.brunotiba.repository
 
 import com.brunotiba.domain.model.Forecast
 import com.brunotiba.domain.repository.WeatherRepository
+import com.brunotiba.repository.datasource.WeatherDataSource
+import com.brunotiba.repository.mapper.ForecastMapper
 import toothpick.InjectConstructor
 
 @InjectConstructor
-class WeatherRepositoryImpl : WeatherRepository {
+internal class WeatherRepositoryImpl(
+    private val weatherDataSource: WeatherDataSource,
+    private val forecastMapper: ForecastMapper
+) : WeatherRepository {
 
-    override fun getCurrentForecastByName(name: String): Forecast = Forecast(
-        cityName = "City",
-        description = "Cloudy",
-        weather = "Cloudy",
-        temperature = 33.0,
-        feelsLike = 35.0,
-        humidity = 55,
-        maxTemperature = 40.0,
-        minTemperature = 20.0,
-        pressure = 44,
-        windDirection = 40,
-        windSpeed = 22.0
-    )
+    override fun getCurrentForecastByCityName(name: String): Forecast {
+        val forecast = weatherDataSource.getCurrentForecastByCityName(name)
+        return forecastMapper.toDomain(forecast)
+    }
 }
