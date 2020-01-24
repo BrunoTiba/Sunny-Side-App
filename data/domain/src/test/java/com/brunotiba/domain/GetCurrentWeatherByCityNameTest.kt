@@ -16,10 +16,10 @@ class GetCurrentWeatherByCityNameTest {
     @Test
     fun `Check if repository is accessed with the correct arguments`() {
         val cityName = "New York"
-        every { repositoryMock.getCurrentForecastByName(cityName) } returns mockk()
+        every { repositoryMock.getCurrentForecastByCityName(cityName) } returns mockk()
 
         getWeather(cityName)
 
-        verify(exactly = 1) { repositoryMock.getCurrentForecastByName(cityName) }
+        verify(exactly = 1) { repositoryMock.getCurrentForecastByCityName(cityName) }
     }
 }
