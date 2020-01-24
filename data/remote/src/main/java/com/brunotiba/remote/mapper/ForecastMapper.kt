@@ -1,8 +1,8 @@
 package com.brunotiba.remote.mapper
 
+import toothpick.InjectConstructor
 import com.brunotiba.remote.model.Forecast as RemoteForecast
 import com.brunotiba.repository.model.Forecast as RepoForecast
-import toothpick.InjectConstructor
 
 /**
  * Mapper class to convert Forecast representations of Domain and Repository modules.
@@ -12,18 +12,21 @@ internal class ForecastMapper {
 
     /**
      * Converts a Remote representation of the Forecast to a Repository representation.
+     *
+     * @param remoteForecast the Remote representation of the forecast
+     * @return the Repository representation of the forecast
      */
     fun toRepository(remoteForecast: RemoteForecast): RepoForecast = RepoForecast(
-        weather = remoteForecast.weather,
-        temperature = remoteForecast.temperature,
-        feelsLike = remoteForecast.feelsLike,
-        humidity = remoteForecast.humidity,
-        maxTemperature = remoteForecast.maxTemperature,
-        minTemperature = remoteForecast.minTemperature,
-        pressure = remoteForecast.pressure,
-        windDirection = remoteForecast.windDirection,
-        windSpeed = remoteForecast.windSpeed,
-        description = remoteForecast.description,
-        cityName = remoteForecast.cityName
+        weather = remoteForecast.weather.first().main,
+        temperature = remoteForecast.currentWeather.temp,
+        feelsLike = remoteForecast.currentWeather.feelsLike,
+        humidity = remoteForecast.currentWeather.humidity,
+        maxTemperature = remoteForecast.currentWeather.maxTemp,
+        minTemperature = remoteForecast.currentWeather.minTemp,
+        pressure = remoteForecast.currentWeather.pressure,
+        windDirection = remoteForecast.wind.deg,
+        windSpeed = remoteForecast.wind.speed,
+        description = remoteForecast.weather.first().description,
+        cityName = remoteForecast.name
     )
 }

@@ -12,6 +12,6 @@ class GetCurrentWeatherByCityName(
     private val weatherRepository: WeatherRepository
 ) {
 
-    operator fun invoke(name: String): Forecast =
+    suspend operator fun invoke(name: String): Forecast =
         weatherRepository.getCurrentForecastByCityName(name)
 }

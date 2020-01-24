@@ -13,5 +13,5 @@ interface WeatherDataSource {
      * @param cityName the city to get the forecast
      * @return the current forecast
      */
-    fun getCurrentForecastByCityName(cityName: String): Forecast
+    suspend fun getCurrentForecastByCityName(cityName: String): Forecast
 }

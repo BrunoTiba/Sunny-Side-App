@@ -12,7 +12,7 @@ internal class WeatherRepositoryImpl(
     private val forecastMapper: ForecastMapper
 ) : WeatherRepository {
 
-    override fun getCurrentForecastByCityName(name: String): Forecast {
+    override suspend fun getCurrentForecastByCityName(name: String): Forecast {
         val forecast = weatherDataSource.getCurrentForecastByCityName(name)
         return forecastMapper.toDomain(forecast)
     }

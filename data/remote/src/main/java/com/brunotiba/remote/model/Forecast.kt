@@ -1,30 +1,28 @@
 package com.brunotiba.remote.model
 
+import com.squareup.moshi.Json
+
 /**
  * Entity representation of a weather forecast.
  *
- * @param cityName the name of the city of the forecast
- * @param weather the general weather condition
- * @param description a short description of the weather
- * @param temperature the current temperature
- * @param feelsLike the temperature as perceived by the human body
- * @param minTemperature the minimum temperature
- * @param maxTemperature the maximum temperature
- * @param pressure the air pressure in hPa
- * @param humidity the current humidity in %
- * @param windSpeed the current wind speed
- * @param windDirection the current wind direction
+ * @param id the id of the forecast
+ * @param name the name of the city
+ * @param coord the forecast coordinates
+ * @param weather the weather general information
+ * @param currentWeather the current weather info
+ * @param visibility the current visibility
+ * @param wind the wind information
+ * @param clouds the cloudiness data
+ * @param timezone the timezone of the location
  */
 data class Forecast(
-    val cityName: String,
-    val weather: String,
-    val description: String,
-    val temperature: Double,
-    val feelsLike: Double,
-    val minTemperature: Double,
-    val maxTemperature: Double,
-    val pressure: Int,
-    val humidity: Int,
-    val windSpeed: Double,
-    val windDirection: Int
+    @field:Json(name = "id") val id: Int,
+    @field:Json(name = "name") val name: String,
+    @field:Json(name = "coord") val coord: Coordinates,
+    @field:Json(name = "weather") val weather: List<Weather>,
+    @field:Json(name = "main") val currentWeather: CurrentWeather,
+    @field:Json(name = "visibility") val visibility: Int,
+    @field:Json(name = "wind") val wind: Wind,
+    @field:Json(name = "clouds") val clouds: Clouds,
+    @field:Json(name = "timezone") val timezone: Int
 )

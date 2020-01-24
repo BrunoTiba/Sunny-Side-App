@@ -3,7 +3,7 @@ apply from: "${rootDir}/config/dependencies/android.gradle"
 
 android {
     File file = new File("${rootDir}/api_key.txt")
-    String apiKey = "\"" + file + "\""
+    String apiKey = "\"" + file.text.trim() + "\""
 
     buildTypes {
         release {
@@ -20,6 +20,7 @@ android {
 dependencies {
     implementation project(":data:repository")
 
+    implementation Dependencies.okHttp.loggingInterceptor
     implementation Dependencies.retrofit.retrofit
     implementation Dependencies.retrofit.moshi
     testImplementation Dependencies.test.junit

@@ -15,4 +15,5 @@ dependencies {
     testImplementation Dependencies.test.toothpick
     testImplementation Dependencies.test.toothpickJUnit
     testImplementation Dependencies.test.mockk
+    testImplementation Dependencies.test.coroutines
 }
