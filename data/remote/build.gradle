@@ -18,5 +18,9 @@ android {
 }
 
 dependencies {
+    implementation project(":data:repository")
+
+    implementation Dependencies.retrofit.retrofit
+    implementation Dependencies.retrofit.moshi
     testImplementation Dependencies.test.junit
 }

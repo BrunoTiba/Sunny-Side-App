@@ -11,6 +11,8 @@ object Versions {
 
     const val toothpick = "3.1.0"
 
+    const val retrofit = "2.7.1"
+
     const val junit = "4.12"
     const val androidJUnit = "1.1.1"
     const val espresso = "3.2.0"
@@ -23,6 +25,7 @@ object Dependencies {
     val androidX = AndroidX
     val test = Test
     val toothpick = Toothpick
+    val retrofit = Retrofit
 }
 
 object AndroidX {
@@ -34,6 +37,11 @@ object AndroidX {
 object Toothpick {
     val di = "com.github.stephanenicolas.toothpick:ktp:${Versions.toothpick}"
     val kapt = "com.github.stephanenicolas.toothpick:toothpick-compiler:${Versions.toothpick}"
+}
+
+object Retrofit {
+    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val moshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
 }
 
 object Test {
