@@ -35,6 +35,7 @@ dependencies {
     implementation Dependencies.androidX.core
     implementation Dependencies.androidX.constraintLayout
     implementation Dependencies.toothpick.di
+    implementation Dependencies.kotlinX.coroutinesCore
     testImplementation Dependencies.test.junit
     androidTestImplementation Dependencies.test.androidJUnit
     androidTestImplementation Dependencies.test.espresso

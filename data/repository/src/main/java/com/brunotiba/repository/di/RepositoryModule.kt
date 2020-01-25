@@ -5,7 +5,7 @@ import com.brunotiba.repository.WeatherRepositoryImpl
 import toothpick.config.Module
 import toothpick.ktp.binding.bind
 
-class RepositoryModule : Module() {
+val repositoryModule = object : Module() {
 
     init {
         bind(WeatherRepository::class).toClass<WeatherRepositoryImpl>()

@@ -2,9 +2,10 @@ package com.brunotiba.domain
 
 import com.brunotiba.domain.repository.WeatherRepository
 import com.brunotiba.domain.usecase.GetCurrentWeatherByCityName
-import io.mockk.every
+import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
-import io.mockk.verify
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
 class GetCurrentWeatherByCityNameTest {
@@ -14,12 +15,12 @@ class GetCurrentWeatherByCityNameTest {
     private val getWeather = GetCurrentWeatherByCityName(repositoryMock)
 
     @Test
-    fun `Check if repository is accessed with the correct arguments`() {
+    fun `Check if repository is accessed with the correct arguments`() = runBlockingTest {
         val cityName = "New York"
-        every { repositoryMock.getCurrentForecastByName(cityName) } returns mockk()
+        coEvery { repositoryMock.getCurrentForecastByCityName(cityName) } returns mockk()
 
         getWeather(cityName)
 
-        verify(exactly = 1) { repositoryMock.getCurrentForecastByName(cityName) }
+        coVerify(exactly = 1) { repositoryMock.getCurrentForecastByCityName(cityName) }
     }
 }
