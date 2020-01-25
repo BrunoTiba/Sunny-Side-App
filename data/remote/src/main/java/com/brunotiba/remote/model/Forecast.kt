@@ -15,7 +15,7 @@ import com.squareup.moshi.Json
  * @param clouds the cloudiness data
  * @param timezone the timezone of the location
  */
-data class Forecast(
+internal data class Forecast(
     @field:Json(name = "id") val id: Int,
     @field:Json(name = "name") val name: String,
     @field:Json(name = "coord") val coord: Coordinates,

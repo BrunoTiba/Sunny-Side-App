@@ -7,10 +7,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Service responsible for fetching data from the weather api.
+ */
 @Singleton
-class WeatherService {
+internal class WeatherService {
 
-    var weatherApi: WeatherApi
+    private val weatherApi: WeatherApi
 
     init {
         val client = OkHttpClient.Builder()
@@ -26,11 +29,17 @@ class WeatherService {
         weatherApi = retrofit.create(WeatherApi::class.java)
     }
 
+    /**
+     * Retrieves the current weather.
+     *
+     * @param cityName the city to retrieve the weather
+     * @return the current weather
+     */
     suspend fun getCurrentWeather(cityName: String) =
         weatherApi.getCurrentWeather(cityName, "metric", API_KEY)
 
     companion object {
-        const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
-        const val API_KEY = BuildConfig.WEATHER_API_KEY
+        private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
+        private const val API_KEY = BuildConfig.WEATHER_API_KEY
     }
 }

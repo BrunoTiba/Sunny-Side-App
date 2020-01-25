@@ -7,6 +7,6 @@ import com.squareup.moshi.Json
  *
  * @param all the cloudiness percentage
  */
-data class Clouds(
+internal data class Clouds(
     @field:Json(name = "all") val all: Int
 )

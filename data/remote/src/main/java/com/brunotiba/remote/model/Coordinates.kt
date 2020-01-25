@@ -8,7 +8,7 @@ import com.squareup.moshi.Json
  * @param lat the latitude
  * @param lon the longitude
  */
-data class Coordinates(
+internal data class Coordinates(
     @field:Json(name = "lat") val lat: Double,
     @field:Json(name = "lon") val lon: Double
 )

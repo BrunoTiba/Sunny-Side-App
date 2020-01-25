@@ -9,7 +9,7 @@ import com.squareup.moshi.Json
  * @param description the description of the forecast
  * @param icon the icon representing the forecast
  */
-data class Weather(
+internal data class Weather(
     @field:Json(name = "main") val main: String,
     @field:Json(name = "description") val description: String,
     @field:Json(name = "icon") val icon: String

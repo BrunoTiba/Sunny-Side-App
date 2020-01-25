@@ -8,7 +8,7 @@ import com.squareup.moshi.Json
  * @param speed the wind speed
  * @param deg the wind direction, in degrees
  */
-data class Wind(
+internal data class Wind(
     @field:Json(name = "speed") val speed: Double,
     @field:Json(name = "deg") val deg: Int
 )

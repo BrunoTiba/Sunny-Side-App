@@ -12,20 +12,6 @@ internal class WeatherDataSourceImpl(
     private val mapper: ForecastMapper
 ) : WeatherDataSource {
 
-//    override fun getCurrentForecastByCityName(cityName: String): Forecast = Forecast(
-//        cityName = "City",
-//        description = "Cloudy",
-//        weather = "Cloudy",
-//        temperature = 33.0,
-//        feelsLike = 35.0,
-//        humidity = 55,
-//        maxTemperature = 40.0,
-//        minTemperature = 20.0,
-//        pressure = 44,
-//        windDirection = 40,
-//        windSpeed = 22.0
-//    )
-
     override suspend fun getCurrentForecastByCityName(cityName: String): Forecast {
         val forecast = weatherService.getCurrentWeather(cityName)
         return mapper.toRepository(forecast)
