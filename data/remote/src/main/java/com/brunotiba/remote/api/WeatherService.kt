@@ -16,17 +16,25 @@ internal class WeatherService {
     private val weatherApi: WeatherApi
 
     init {
-        val client = OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().apply {
-                setLevel(HttpLoggingInterceptor.Level.BASIC)
-            })
-            .build()
-        val retrofit = Retrofit.Builder()
+        val retrofit = getRetrofit()
+        weatherApi = retrofit.create(WeatherApi::class.java)
+    }
+
+    private fun getRetrofit(): Retrofit {
+        val client = getOkHttpClient()
+        return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
-        weatherApi = retrofit.create(WeatherApi::class.java)
+    }
+
+    private fun getOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                setLevel(HttpLoggingInterceptor.Level.BASIC)
+            })
+            .build()
     }
 
     /**
