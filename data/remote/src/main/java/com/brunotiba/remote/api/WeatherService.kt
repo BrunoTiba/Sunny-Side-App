@@ -13,12 +13,7 @@ import javax.inject.Singleton
 @Singleton
 internal class WeatherService {
 
-    private val weatherApi: WeatherApi
-
-    init {
-        val retrofit = getRetrofit()
-        weatherApi = retrofit.create(WeatherApi::class.java)
-    }
+    private val weatherApi: WeatherApi = getRetrofit().create(WeatherApi::class.java)
 
     private fun getRetrofit(): Retrofit {
         val client = getOkHttpClient()
