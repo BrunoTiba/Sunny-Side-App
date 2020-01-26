@@ -8,8 +8,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation":"$projectDir/data/local/src/main/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"
+                ]
+            }
+        }
+    }
 }
 
 dependencies {
+    implementation Dependencies.room.runtime
+    kapt Dependencies.room.kapt
     testImplementation Dependencies.test.junit
+    testImplementation Dependencies.test.room
 }
