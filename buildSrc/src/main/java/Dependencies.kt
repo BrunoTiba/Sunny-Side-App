@@ -21,7 +21,7 @@ object Versions {
     const val junit = "4.12"
     const val androidJUnit = "1.1.1"
     const val espresso = "3.2.0"
-    const val mockk = "1.9"
+    const val mockk = "1.9.3"
 }
 
 object Dependencies {
