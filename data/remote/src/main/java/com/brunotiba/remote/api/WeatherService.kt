@@ -18,7 +18,7 @@ internal class WeatherService {
     private fun getRetrofit(): Retrofit {
         val client = getOkHttpClient()
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.WEATHER_API_URL)
             .client(client)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
@@ -39,10 +39,5 @@ internal class WeatherService {
      * @return the current weather
      */
     suspend fun getCurrentWeather(cityName: String) =
-        weatherApi.getCurrentWeather(cityName, "metric", API_KEY)
-
-    companion object {
-        private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
-        private const val API_KEY = BuildConfig.WEATHER_API_KEY
-    }
+        weatherApi.getCurrentWeather(cityName, "metric", BuildConfig.WEATHER_API_KEY)
 }

@@ -18,7 +18,7 @@ internal class UvService {
     private fun getRetrofit(): Retrofit {
         val client = getOkHttpClient()
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.WEATHER_API_URL)
             .client(client)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
@@ -41,10 +41,5 @@ internal class UvService {
      * @return the current Uv
      */
     suspend fun getCurrentUv(lat: Double, lon: Double) =
-        uvApi.getCurrentUv(lat, lon, API_KEY)
-
-    companion object {
-        private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
-        private const val API_KEY = BuildConfig.WEATHER_API_KEY
-    }
+        uvApi.getCurrentUv(lat, lon, BuildConfig.WEATHER_API_KEY)
 }
