@@ -2,6 +2,8 @@ package com.brunotiba.remote.di
 
 import com.brunotiba.remote.UvDataSourceImpl
 import com.brunotiba.remote.WeatherDataSourceImpl
+import com.brunotiba.remote.api.ClientProvider
+import com.brunotiba.remote.api.RetrofitProvider
 import com.brunotiba.remote.api.UvService
 import com.brunotiba.remote.api.WeatherService
 import com.brunotiba.remote.mapper.ForecastMapper
@@ -24,5 +26,9 @@ val remoteModule = object : Module() {
         // Mapper
         bind(ForecastMapper::class).toClass<ForecastMapper>()
         bind(UvMapper::class).toClass<UvMapper>()
+
+        // Provider
+        bind(RetrofitProvider::class).toClass<RetrofitProvider>()
+        bind(ClientProvider::class).toClass<ClientProvider>()
     }
 }

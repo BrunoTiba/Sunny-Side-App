@@ -1,36 +1,20 @@
 package com.brunotiba.remote.api
 
 import com.brunotiba.remote.BuildConfig
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import toothpick.InjectConstructor
 import javax.inject.Singleton
 
 /**
  * Service responsible for fetching data from Uv api.
  */
+@InjectConstructor
 @Singleton
-internal class UvService {
+internal class UvService(retrofitProvider: RetrofitProvider) : ApiService(retrofitProvider) {
 
-    private val uvApi: UvApi = getRetrofit().create(UvApi::class.java)
+    override val apiUrl: String
+        get() = BuildConfig.WEATHER_API_URL
 
-    private fun getRetrofit(): Retrofit {
-        val client = getOkHttpClient()
-        return Retrofit.Builder()
-            .baseUrl(BuildConfig.WEATHER_API_URL)
-            .client(client)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .build()
-    }
-
-    private fun getOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().apply {
-                setLevel(HttpLoggingInterceptor.Level.BASIC)
-            })
-            .build()
-    }
+    private val uvApi: UvApi = getApi()
 
     /**
      * Retrieves the current Uv.
