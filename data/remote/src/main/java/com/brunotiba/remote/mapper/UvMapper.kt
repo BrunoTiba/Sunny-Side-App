@@ -14,8 +14,8 @@ internal class UvMapper {
     /**
      * Converts a Remote representation of the Uv to a Repository representation.
      */
-    fun toRepository(repoUv: RemoteUv): RepoUv = RepoUv(
-        value = repoUv.value,
-        date = Calendar.getInstance().apply { timeInMillis = repoUv.date }
+    fun toRepository(remoteUv: RemoteUv): RepoUv = RepoUv(
+        value = remoteUv.value,
+        date = Calendar.getInstance().apply { timeInMillis = remoteUv.date }
     )
 }
