@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "bfd5feebb0e02ab72448d97a71921c17",
+    "identityHash": "db22d4d223a690fb1331408898c44b19",
     "entities": [
       {
         "tableName": "forecast",
@@ -125,31 +125,31 @@
       },
       {
         "tableName": "location",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `location_latitude` REAL NOT NULL, `location_longitude` REAL NOT NULL, `location_name` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT, `location_latitude` REAL, `location_longitude` REAL, `location_name` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "location_id",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "latitude",
             "columnName": "location_latitude",
             "affinity": "REAL",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "longitude",
             "columnName": "location_longitude",
             "affinity": "REAL",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "name",
             "columnName": "location_name",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -165,7 +165,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bfd5feebb0e02ab72448d97a71921c17')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'db22d4d223a690fb1331408898c44b19')"
     ]
   }
 }

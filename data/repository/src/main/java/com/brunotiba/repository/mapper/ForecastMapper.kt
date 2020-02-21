@@ -14,7 +14,7 @@ internal class ForecastMapper {
      * Converts a Repository representation of the Forecast to a Domain representation.
      */
     fun toDomain(repoForecast: RepoForecast): DomainForecast = DomainForecast(
-        cityName = repoForecast.cityName,
+        cityName = repoForecast.cityName ?: "",
         description = repoForecast.description,
         windSpeed = repoForecast.windSpeed,
         windDirection = repoForecast.windDirection,

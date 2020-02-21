@@ -26,18 +26,20 @@ import java.util.Calendar
  * @param date the date of the Forecast
  */
 
-@Entity(tableName = "forecast",
+@Entity(
+    tableName = "forecast",
     foreignKeys = [ForeignKey(
         entity = Location::class,
         parentColumns = ["location_id"],
         childColumns = ["forecast_location_id"],
         onDelete = ForeignKey.CASCADE
     )],
-    indices = [Index(value = ["forecast_location_id"])])
+    indices = [Index(value = ["forecast_location_id"])]
+)
 internal data class Forecast(
     @ColumnInfo(name = "forecast_id") @PrimaryKey(autoGenerate = true) val id: Long = 0,
     @ColumnInfo(name = "forecast_city_name") val cityName: String?,
-    @ColumnInfo(name = "forecast_location_id") val locationId: Long?,
+    @ColumnInfo(name = "forecast_location_id") val locationId: Long? = null,
     @ColumnInfo(name = "forecast_weather") val weather: String,
     @ColumnInfo(name = "forecast_description") val description: String,
     @ColumnInfo(name = "forecast_temperature") val temperature: Double,

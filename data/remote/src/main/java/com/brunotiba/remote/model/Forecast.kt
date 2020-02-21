@@ -14,6 +14,7 @@ import com.squareup.moshi.Json
  * @param wind the wind information
  * @param clouds the cloudiness data
  * @param timezone the timezone of the location
+ * @param dt the date of the forecast
  */
 internal data class Forecast(
     @field:Json(name = "id") val id: Int,
@@ -24,5 +25,6 @@ internal data class Forecast(
     @field:Json(name = "visibility") val visibility: Int,
     @field:Json(name = "wind") val wind: Wind,
     @field:Json(name = "clouds") val clouds: Clouds,
-    @field:Json(name = "timezone") val timezone: Int
+    @field:Json(name = "timezone") val timezone: Int,
+    @field:Json(name = "dt") val date: Long
 )
