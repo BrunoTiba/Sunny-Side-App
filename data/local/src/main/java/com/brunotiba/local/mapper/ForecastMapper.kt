@@ -5,8 +5,17 @@ import com.brunotiba.local.model.Location
 import com.brunotiba.local.model.Forecast as LocalForecast
 import com.brunotiba.repository.model.Forecast as RepoForecast
 
+/**
+ * Mapper class to convert Forecast representations of Repository and Local modules.
+ */
 internal class ForecastMapper {
 
+    /**
+     * Converts a Local representation of the Forecast to a Repository representation.
+     *
+     * @param forecastWithLocation the Local representation of the forecast
+     * @return the Repository representation of the forecast
+     */
     fun toRepo(forecastWithLocation: ForecastWithLocation): RepoForecast =
         forecastWithLocation.forecast.let { forecast ->
             return RepoForecast(
@@ -28,6 +37,12 @@ internal class ForecastMapper {
             )
         }
 
+    /**
+     * Converts a Repository representation of the Forecast to a Local representation.
+     *
+     * @param repoForecast the Repository representation of the forecast
+     * @return the Local representation of the forecast
+     */
     fun toLocal(repoForecast: RepoForecast): ForecastWithLocation = ForecastWithLocation(
         forecast = getLocalForecast(repoForecast),
         location = Location(

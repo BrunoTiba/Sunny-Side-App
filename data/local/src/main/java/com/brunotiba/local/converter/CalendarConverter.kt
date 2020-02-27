@@ -3,6 +3,9 @@ package com.brunotiba.local.converter
 import androidx.room.TypeConverter
 import java.util.Calendar
 
+/**
+ * Converter class to handle [Calendar] and long conversions.
+ */
 internal class CalendarConverter {
 
     @TypeConverter
