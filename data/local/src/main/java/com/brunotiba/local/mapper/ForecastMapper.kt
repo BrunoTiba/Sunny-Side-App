@@ -2,12 +2,14 @@ package com.brunotiba.local.mapper
 
 import com.brunotiba.local.model.ForecastWithLocation
 import com.brunotiba.local.model.Location
+import toothpick.InjectConstructor
 import com.brunotiba.local.model.Forecast as LocalForecast
 import com.brunotiba.repository.model.Forecast as RepoForecast
 
 /**
  * Mapper class to convert Forecast representations of Repository and Local modules.
  */
+@InjectConstructor
 internal class ForecastMapper {
 
     /**
@@ -21,8 +23,8 @@ internal class ForecastMapper {
             return RepoForecast(
                 id = forecast.id,
                 date = forecast.date,
-                latitude = forecastWithLocation.location.latitude,
-                longitude = forecastWithLocation.location.longitude,
+                latitude = forecastWithLocation.location?.latitude ?: 0.0,
+                longitude = forecastWithLocation.location?.longitude ?: 0.0,
                 weather = forecast.weather,
                 cityName = forecast.cityName ?: "",
                 description = forecast.description,

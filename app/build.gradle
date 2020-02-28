@@ -30,6 +30,7 @@ dependencies {
     implementation project(":data:domain")
     implementation project(":data:repository")
     implementation project(":data:remote")
+    implementation project(":data:local")
     implementation Dependencies.kotlin
     implementation Dependencies.androidX.appCompat
     implementation Dependencies.androidX.core

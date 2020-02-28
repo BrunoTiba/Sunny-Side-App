@@ -1,7 +1,8 @@
 package com.brunotiba.local.dao
 
 import androidx.room.Dao
-import androidx.room.Query
+import androidx.room.Delete
+import androidx.room.Insert
 import com.brunotiba.local.model.Forecast
 
 /**
@@ -10,9 +11,9 @@ import com.brunotiba.local.model.Forecast
 @Dao
 internal interface ForecastDao {
 
-    /**
-     * Retrieves all the available Forecasts.
-     */
-    @Query("SELECT * FROM  forecast")
-    fun getAllForecasts(): List<Forecast>
+    @Insert
+    fun insert(forecast: Forecast)
+
+    @Delete
+    fun delete(forecast: Forecast)
 }

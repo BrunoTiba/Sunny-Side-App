@@ -5,6 +5,8 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.brunotiba.local.converter.CalendarConverter
 import com.brunotiba.local.dao.ForecastDao
+import com.brunotiba.local.dao.ForecastWithLocationDao
+import com.brunotiba.local.dao.LocationDao
 import com.brunotiba.local.model.Forecast
 import com.brunotiba.local.model.Location
 
@@ -15,4 +17,6 @@ import com.brunotiba.local.model.Location
 @TypeConverters(CalendarConverter::class)
 internal abstract class SunnySideDatabase : RoomDatabase() {
     abstract fun getForecastDao(): ForecastDao
+    abstract fun getLocationDao(): LocationDao
+    abstract fun getForecastWithLocationDao(): ForecastWithLocationDao
 }
