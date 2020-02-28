@@ -1,0 +1,171 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "db22d4d223a690fb1331408898c44b19",
+    "entities": [
+      {
+        "tableName": "forecast",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`forecast_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `forecast_city_name` TEXT, `forecast_location_id` INTEGER, `forecast_weather` TEXT NOT NULL, `forecast_description` TEXT NOT NULL, `forecast_temperature` REAL NOT NULL, `forecast_feels_like` REAL NOT NULL, `forecast_min_temp` REAL NOT NULL, `forecast_max_temp` REAL NOT NULL, `forecast_pressure` INTEGER NOT NULL, `forecast_humidity` INTEGER NOT NULL, `forecast_wind_speed` REAL NOT NULL, `forecast_wind_direction` INTEGER NOT NULL, `forecast_date` INTEGER NOT NULL, FOREIGN KEY(`forecast_location_id`) REFERENCES `location`(`location_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "forecast_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cityName",
+            "columnName": "forecast_city_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "locationId",
+            "columnName": "forecast_location_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "weather",
+            "columnName": "forecast_weather",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "forecast_description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "temperature",
+            "columnName": "forecast_temperature",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "feelsLike",
+            "columnName": "forecast_feels_like",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "minTemperature",
+            "columnName": "forecast_min_temp",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "maxTemperature",
+            "columnName": "forecast_max_temp",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pressure",
+            "columnName": "forecast_pressure",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "humidity",
+            "columnName": "forecast_humidity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "windSpeed",
+            "columnName": "forecast_wind_speed",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "windDirection",
+            "columnName": "forecast_wind_direction",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "forecast_date",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "forecast_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_forecast_forecast_location_id",
+            "unique": false,
+            "columnNames": [
+              "forecast_location_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_forecast_forecast_location_id` ON `${TABLE_NAME}` (`forecast_location_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "location",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "forecast_location_id"
+            ],
+            "referencedColumns": [
+              "location_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "location",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT, `location_latitude` REAL, `location_longitude` REAL, `location_name` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "location_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "latitude",
+            "columnName": "location_latitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "location_longitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "location_name",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "location_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'db22d4d223a690fb1331408898c44b19')"
+    ]
+  }
+}

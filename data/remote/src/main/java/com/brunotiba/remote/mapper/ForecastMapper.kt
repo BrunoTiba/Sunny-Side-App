@@ -1,6 +1,7 @@
 package com.brunotiba.remote.mapper
 
 import toothpick.InjectConstructor
+import java.util.Calendar
 import com.brunotiba.remote.model.Forecast as RemoteForecast
 import com.brunotiba.repository.model.Forecast as RepoForecast
 
@@ -18,6 +19,8 @@ internal class ForecastMapper {
      */
     fun toRepository(remoteForecast: RemoteForecast): RepoForecast = RepoForecast(
         weather = remoteForecast.weather.first().main,
+        latitude = remoteForecast.coord.lat,
+        longitude = remoteForecast.coord.lon,
         temperature = remoteForecast.currentWeather.temp,
         feelsLike = remoteForecast.currentWeather.feelsLike,
         humidity = remoteForecast.currentWeather.humidity,
@@ -27,6 +30,7 @@ internal class ForecastMapper {
         windDirection = remoteForecast.wind.deg,
         windSpeed = remoteForecast.wind.speed,
         description = remoteForecast.weather.first().description,
-        cityName = remoteForecast.name
+        cityName = remoteForecast.name,
+        date = Calendar.getInstance().apply { timeInMillis = remoteForecast.date }
     )
 }

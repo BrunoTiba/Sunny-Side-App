@@ -16,10 +16,12 @@ object Versions {
 
     const val coroutines = "1.3.3"
 
+    const val room = "2.2.3"
+
     const val junit = "4.12"
     const val androidJUnit = "1.1.1"
     const val espresso = "3.2.0"
-    const val mockk = "1.9"
+    const val mockk = "1.9.3"
 }
 
 object Dependencies {
@@ -30,6 +32,7 @@ object Dependencies {
     val toothpick = Toothpick
     val okHttp = OkHttp
     val retrofit = Retrofit
+    val room = Room
     val kotlinX = KotlinX
 }
 
@@ -58,6 +61,12 @@ object Retrofit {
     val moshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
 }
 
+object Room {
+    val runtime = "androidx.room:room-runtime:${Versions.room}"
+    val kapt = "androidx.room:room-compiler:${Versions.room}"
+    val kotlinExtensions = "androidx.room:room-ktx:${Versions.room}"
+}
+
 object Test {
     val junit = "junit:junit:${Versions.junit}"
     val androidJUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
@@ -67,4 +76,5 @@ object Test {
         "com.github.stephanenicolas.toothpick:toothpick-testing-junit4:${Versions.toothpick}"
     val mockk = "io.mockk:mockk:${Versions.mockk}"
     val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    val room = "androidx.room:room-testing:${Versions.room}"
 }
