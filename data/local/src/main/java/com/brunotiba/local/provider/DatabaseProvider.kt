@@ -12,5 +12,9 @@ import toothpick.InjectConstructor
 internal class DatabaseProvider(context: Context) {
 
     val database: SunnySideDatabase =
-        Room.databaseBuilder(context, SunnySideDatabase::class.java, "sunny-side").build()
+        Room.databaseBuilder(context, SunnySideDatabase::class.java, DATABASE_NAME).build()
+
+    companion object {
+        private const val DATABASE_NAME = "sunny-side"
+    }
 }
