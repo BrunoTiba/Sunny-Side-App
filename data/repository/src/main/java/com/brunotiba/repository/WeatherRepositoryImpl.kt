@@ -4,6 +4,7 @@ import com.brunotiba.domain.repository.WeatherRepository
 import com.brunotiba.repository.datasource.ForecastCache
 import com.brunotiba.repository.datasource.WeatherDataSource
 import com.brunotiba.repository.mapper.ForecastMapper
+import timber.log.Timber
 import toothpick.InjectConstructor
 import com.brunotiba.domain.model.Forecast as DomainForecast
 import com.brunotiba.repository.model.Forecast as RepoForecast
@@ -24,12 +25,16 @@ internal class WeatherRepositoryImpl(
 ) : WeatherRepository {
 
     override suspend fun getCurrentForecastByCityName(name: String): DomainForecast {
+        Timber.d("getCurrentForecastByCityName - name: $name")
+
         val forecast: RepoForecast =
             forecastCache.getForecastByName(name) ?: retrieveRemoteForecast(name)
         return forecastMapper.toDomain(forecast)
     }
 
     private suspend fun retrieveRemoteForecast(name: String): RepoForecast {
+        Timber.d("retrieveRemoteForecast - name: $name")
+
         val forecast = weatherDataSource.getCurrentForecastByCityName(name)
         forecastCache.insertForecast(forecast)
         return forecast
