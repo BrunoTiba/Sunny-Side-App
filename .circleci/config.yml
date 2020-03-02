@@ -11,11 +11,14 @@ jobs:
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
-          name: Create api key file
-          command: echo $WEATHER_API_KEY > api_key.txt
+          name: Create weather api key file
+          command: echo $WEATHER_API_KEY > weather_api_key.txt
+       - run:
+          name: Create geolocation api key file
+          command: echo $GEOLOCATION_API_KEY > geolocation_api_key.txt
       - run:
-         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
-         command: sudo chmod +x ./gradlew
+          name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
+          command: sudo chmod +x ./gradlew
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
