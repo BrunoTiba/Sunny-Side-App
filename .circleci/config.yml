@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Create weather api key file
           command: echo $WEATHER_API_KEY > weather_api_key.txt
-       - run:
+      - run:
           name: Create geolocation api key file
           command: echo $GEOLOCATION_API_KEY > geolocation_api_key.txt
       - run:
