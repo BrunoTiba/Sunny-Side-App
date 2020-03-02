@@ -2,8 +2,8 @@ package com.brunotiba.remote.di
 
 import com.brunotiba.remote.UvDataSourceImpl
 import com.brunotiba.remote.WeatherDataSourceImpl
-import com.brunotiba.remote.api.ClientProvider
-import com.brunotiba.remote.api.RetrofitProvider
+import com.brunotiba.remote.provider.ClientProvider
+import com.brunotiba.remote.provider.RetrofitProvider
 import com.brunotiba.remote.api.UvService
 import com.brunotiba.remote.api.WeatherService
 import com.brunotiba.remote.mapper.ForecastMapper

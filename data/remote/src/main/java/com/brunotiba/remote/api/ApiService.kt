@@ -1,5 +1,7 @@
 package com.brunotiba.remote.api
 
+import com.brunotiba.remote.provider.RetrofitProvider
+
 /**
  * Abstract class to encapsulate the API creation.
  */

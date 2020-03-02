@@ -1,6 +1,7 @@
 package com.brunotiba.remote.api
 
 import com.brunotiba.remote.BuildConfig
+import com.brunotiba.remote.provider.RetrofitProvider
 import toothpick.InjectConstructor
 import javax.inject.Singleton
 
@@ -24,6 +25,5 @@ internal class UvService(retrofitProvider: RetrofitProvider) : ApiService(retrof
      *
      * @return the current Uv
      */
-    suspend fun getCurrentUv(lat: Double, lon: Double) =
-        uvApi.getCurrentUv(lat, lon, BuildConfig.WEATHER_API_KEY)
+    suspend fun getCurrentUv(lat: Double, lon: Double) = uvApi.getCurrentUv(lat, lon)
 }
