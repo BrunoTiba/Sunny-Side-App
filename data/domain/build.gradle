@@ -1,5 +1,6 @@
 apply from: "${rootDir}/config/dependencies/features.gradle"
 apply from: "${rootDir}/config/dependencies/android.gradle"
+apply from: "${rootDir}/config/dependencies/test.gradle"
 
 android {
     buildTypes {
@@ -8,15 +9,4 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-dependencies {
-    testImplementation Dependencies.test.junit
-    testImplementation Dependencies.test.toothpick
-    testImplementation Dependencies.test.toothpickJUnit
-    testImplementation Dependencies.test.mockk
-    testImplementation Dependencies.test.coroutines
-
-    // Workaround to fix compatibility between Mockk and Java 13
-    testRuntimeOnly("net.bytebuddy:byte-buddy:1.10.6")
 }
