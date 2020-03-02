@@ -9,7 +9,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
-class WeatherRepositoryImplTest {
+internal class WeatherRepositoryImplTest {
 
     private val mockDataSource = mockk<WeatherDataSource>()
 
