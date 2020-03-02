@@ -14,7 +14,6 @@ internal interface UvApi {
      *
      * @param lat latitude of the location
      * @param lon longitude of the location
-     * @param apiKey the secret api key
      *
      * @return a Uv containing the current index
      * */

@@ -2,8 +2,11 @@ apply from: "${rootDir}/config/dependencies/features.gradle"
 apply from: "${rootDir}/config/dependencies/android.gradle"
 
 android {
-    File file = new File("${rootDir}/api_key.txt")
-    String apiKey = "\"" + file.text.trim() + "\""
+    File geolocation = new File("${rootDir}/geolocation_api_key.txt")
+    String geolocationApiKey = "\"" + geolocation.text.trim() + "\""
+
+    File weather = new File("${rootDir}/weather_api_key.txt")
+    String weatherApiKey = "\"" + weather.text.trim() + "\""
 
     buildTypes {
         release {
@@ -13,8 +16,10 @@ android {
     }
 
     buildTypes.forEach {
-        it.buildConfigField 'String', 'WEATHER_API_KEY', "${apiKey.trim()}"
+        it.buildConfigField 'String', 'WEATHER_API_KEY', "${weatherApiKey.trim()}"
         it.buildConfigField 'String', 'WEATHER_API_URL', "\"https://api.openweathermap.org/data/2.5/\""
+        it.buildConfigField 'String', 'GEOLOCATION_API_KEY', "${geolocationApiKey.trim()}"
+        it.buildConfigField 'String', 'GEOLOCATION_API_URL', "\"https://us1.locationiq.com/v1\""
     }
 }
 
