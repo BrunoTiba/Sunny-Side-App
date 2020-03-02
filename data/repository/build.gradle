@@ -1,5 +1,6 @@
 apply from: "${rootDir}/config/dependencies/features.gradle"
 apply from: "${rootDir}/config/dependencies/android.gradle"
+apply from: "${rootDir}/config/dependencies/test.gradle"
 
 android {
     buildTypes {
@@ -12,5 +13,4 @@ android {
 
 dependencies {
     implementation project(":data:domain")
-    testImplementation Dependencies.test.junit
 }
