@@ -31,8 +31,8 @@ jobs:
       - store_test_results:
           path: data/domain/build/test-results
       - run:
-        name: Run Repository Module Unit Tests
-        command: ./gradlew :data:repository:testDebugUnitTest
+          name: Run Repository Module Unit Tests
+          command: ./gradlew :data:repository:testDebugUnitTest
       - store_artifacts:
           path: data/repository/build/reports
       - store_test_results:
