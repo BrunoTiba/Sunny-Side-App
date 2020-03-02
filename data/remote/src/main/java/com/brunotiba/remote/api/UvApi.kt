@@ -21,7 +21,6 @@ internal interface UvApi {
     @GET("uvi")
     suspend fun getCurrentUv(
         @Query("lat") lat: Double,
-        @Query("lon") lon: Double,
-        @Query("APPID") apiKey: String
+        @Query("lon") lon: Double
     ): Uv
 }

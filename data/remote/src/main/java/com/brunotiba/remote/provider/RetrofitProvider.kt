@@ -1,4 +1,4 @@
-package com.brunotiba.remote.api
+package com.brunotiba.remote.provider
 
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory

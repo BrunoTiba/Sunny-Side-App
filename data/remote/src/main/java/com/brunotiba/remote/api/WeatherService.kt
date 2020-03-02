@@ -1,6 +1,7 @@
 package com.brunotiba.remote.api
 
 import com.brunotiba.remote.BuildConfig
+import com.brunotiba.remote.provider.RetrofitProvider
 import toothpick.InjectConstructor
 import javax.inject.Singleton
 
@@ -23,5 +24,5 @@ internal class WeatherService(retrofitProvider: RetrofitProvider) : ApiService(r
      * @return the current weather
      */
     suspend fun getCurrentWeather(cityName: String) =
-        weatherApi.getCurrentWeather(cityName, "metric", BuildConfig.WEATHER_API_KEY)
+        weatherApi.getCurrentWeather(cityName, "metric")
 }

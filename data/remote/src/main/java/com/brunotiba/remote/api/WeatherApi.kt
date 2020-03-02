@@ -20,7 +20,6 @@ internal interface WeatherApi {
     @GET("weather")
     suspend fun getCurrentWeather(
         @Query("q") cityName: String,
-        @Query("units") unitType: String,
-        @Query("APPID") apiKey: String
+        @Query("units") unitType: String
     ): Forecast
 }

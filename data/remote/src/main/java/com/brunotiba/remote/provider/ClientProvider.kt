@@ -1,5 +1,6 @@
-package com.brunotiba.remote.api
+package com.brunotiba.remote.provider
 
+import com.brunotiba.remote.network.ApiKeyInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import toothpick.InjectConstructor
@@ -20,6 +21,7 @@ internal class ClientProvider {
         OkHttpClient.Builder()
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
+            .addInterceptor(ApiKeyInterceptor())
             .addInterceptor(HttpLoggingInterceptor().apply {
                 setLevel(HttpLoggingInterceptor.Level.BASIC)
             })
