@@ -5,6 +5,9 @@ import com.brunotiba.remote.network.QueryParameter
 import com.brunotiba.remote.provider.RetrofitProvider
 import toothpick.InjectConstructor
 
+/**
+ * Service responsible for fetching data from the geolocation api.
+ */
 @InjectConstructor
 internal class LocationService(retrofitProvider: RetrofitProvider) : ApiService(retrofitProvider) {
 
@@ -19,6 +22,12 @@ internal class LocationService(retrofitProvider: RetrofitProvider) : ApiService(
 
     private val locationApi: LocationApi = getApi()
 
+    /**
+     * Retrieves the coordinates of the given location name.
+     *
+     * @param name the location name
+     * @return a list containing the coordinates matching the given location
+     */
     suspend fun getLocationByName(name: String) = locationApi.getLocationByName(name)
 
     companion object {
