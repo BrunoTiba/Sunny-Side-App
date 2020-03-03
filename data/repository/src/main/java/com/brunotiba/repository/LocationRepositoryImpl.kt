@@ -11,7 +11,7 @@ import toothpick.InjectConstructor
  * [LocationRepository] implementation.
  */
 @InjectConstructor
-class LocationRepositoryImpl(
+internal class LocationRepositoryImpl(
     private val locationDataSource: LocationDataSource,
     private val mapper: LocationMapper
 ) : LocationRepository {

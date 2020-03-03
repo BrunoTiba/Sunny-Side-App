@@ -16,7 +16,7 @@ class GetCurrentWeatherByCityName(
     suspend operator fun invoke(name: String): Forecast {
         Timber.d("name: $name")
 
-        val forecast =  weatherRepository.getCurrentForecastByCityName(name)
+        val forecast = weatherRepository.getCurrentForecastByCityName(name)
 
         Timber.d("forecast: $forecast")
 

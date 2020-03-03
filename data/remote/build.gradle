@@ -19,7 +19,7 @@ android {
         it.buildConfigField 'String', 'WEATHER_API_KEY', "${weatherApiKey.trim()}"
         it.buildConfigField 'String', 'WEATHER_API_URL', "\"https://api.openweathermap.org/data/2.5/\""
         it.buildConfigField 'String', 'GEOLOCATION_API_KEY', "${geolocationApiKey.trim()}"
-        it.buildConfigField 'String', 'GEOLOCATION_API_URL', "\"https://us1.locationiq.com/v1\""
+        it.buildConfigField 'String', 'GEOLOCATION_API_URL', "\"https://us1.locationiq.com/v1/\""
     }
 }
 

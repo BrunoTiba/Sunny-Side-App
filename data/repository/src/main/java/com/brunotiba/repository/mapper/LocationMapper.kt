@@ -8,7 +8,7 @@ import com.brunotiba.repository.model.Location as RepoLocation
  * Mapper class to convert Location representations of Domain and Repository modules.
  */
 @InjectConstructor
-class LocationMapper {
+internal class LocationMapper {
 
     /**
      * Converts a Repository representation of the Location to a Domain representation.

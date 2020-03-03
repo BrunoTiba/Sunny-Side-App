@@ -13,5 +13,5 @@ interface LocationDataSource {
      * @param name the location name
      * @return the location
      */
-    fun getLocationFromName(name: String): Location
+    suspend fun getLocationFromName(name: String): Location
 }
