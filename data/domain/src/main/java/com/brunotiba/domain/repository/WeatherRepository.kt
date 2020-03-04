@@ -3,7 +3,7 @@ package com.brunotiba.domain.repository
 import com.brunotiba.domain.model.Forecast
 
 /**
- * Repository if location information.
+ * Repository of location information.
  */
 interface WeatherRepository {
 
