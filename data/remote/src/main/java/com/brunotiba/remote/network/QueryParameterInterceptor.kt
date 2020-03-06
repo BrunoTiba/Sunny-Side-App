@@ -1,27 +1,25 @@
 package com.brunotiba.remote.network
 
-import com.brunotiba.remote.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
+import timber.log.Timber
 
 /**
- * [Interceptor] implementation that adds the API key param to the requests.
+ * [Interceptor] implementation that adds a query parameter to the request.
+ *
+ * @param parameter the parameter to be inserted
  */
-internal class ApiKeyInterceptor: Interceptor {
+internal class QueryParameterInterceptor(private val parameter: QueryParameter) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
         val originalUrl = originalRequest.url
         val newUrl = originalUrl.newBuilder()
-            .addQueryParameter(API_KEY_QUERY, BuildConfig.WEATHER_API_KEY)
+            .addQueryParameter(parameter.query, parameter.value)
             .build()
         val newRequest = originalRequest.newBuilder()
             .url(newUrl)
             .build()
         return chain.proceed(newRequest)
-    }
-
-    companion object {
-        private const val API_KEY_QUERY = "APPID"
     }
 }

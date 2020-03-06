@@ -14,7 +14,6 @@ internal interface WeatherApi {
      *
      * @param cityName the city name
      * @param unitType the unit type - either imperial or metric
-     * @param apiKey the secret api key
      * @return a Forecast containing the current weather
      */
     @GET("weather")

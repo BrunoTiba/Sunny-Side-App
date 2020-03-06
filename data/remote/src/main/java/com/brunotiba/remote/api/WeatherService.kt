@@ -1,6 +1,7 @@
 package com.brunotiba.remote.api
 
 import com.brunotiba.remote.BuildConfig
+import com.brunotiba.remote.network.QueryParameter
 import com.brunotiba.remote.provider.RetrofitProvider
 import toothpick.InjectConstructor
 import javax.inject.Singleton
@@ -15,6 +16,9 @@ internal class WeatherService(retrofitProvider: RetrofitProvider) : ApiService(r
     override val apiUrl: String
         get() = BuildConfig.WEATHER_API_URL
 
+    override fun getMandatoryParams(): List<QueryParameter> =
+        listOf(QueryParameter(API_KEY_QUERY, BuildConfig.WEATHER_API_KEY))
+
     private val weatherApi: WeatherApi = getApi()
 
     /**
@@ -24,5 +28,10 @@ internal class WeatherService(retrofitProvider: RetrofitProvider) : ApiService(r
      * @return the current weather
      */
     suspend fun getCurrentWeather(cityName: String) =
-        weatherApi.getCurrentWeather(cityName, "metric")
+        weatherApi.getCurrentWeather(cityName, UNIT_TYPE_METRIC)
+
+    companion object {
+        private const val API_KEY_QUERY = "APPID"
+        private const val UNIT_TYPE_METRIC = "metric"
+    }
 }

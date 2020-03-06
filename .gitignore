@@ -1,7 +1,8 @@
 *.iml
 .gradle
 .idea
-/api_key.txt
+/geolocation_api_key.txt
+/weather_api_key.txt
 /local.properties
 /.idea/caches
 /.idea/libraries
