@@ -10,6 +10,8 @@ import toothpick.InjectConstructor
  */
 @InjectConstructor
 class GetCurrentWeatherByCityName(
+    private val getLocationFromCityName: GetLocationFromCityName,
+    private val getCurrentUvByCoordinates: GetCurrentUvByCoordinates,
     private val weatherRepository: WeatherRepository
 ) {
 
@@ -17,9 +19,12 @@ class GetCurrentWeatherByCityName(
         Timber.d("name: $name")
 
         val forecast = weatherRepository.getCurrentForecastByCityName(name)
+        val location = getLocationFromCityName(name)
+        val uv = getCurrentUvByCoordinates(location.latitude, location.longitude)
+        val result = forecast.copy(uvIndex = uv)
 
-        Timber.d("forecast: $forecast")
+        Timber.v("forecast: $result")
 
-        return forecast
+        return result
     }
 }
