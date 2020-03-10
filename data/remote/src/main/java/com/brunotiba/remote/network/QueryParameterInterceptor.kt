@@ -2,7 +2,6 @@ package com.brunotiba.remote.network
 
 import okhttp3.Interceptor
 import okhttp3.Response
-import timber.log.Timber
 
 /**
  * [Interceptor] implementation that adds a query parameter to the request.

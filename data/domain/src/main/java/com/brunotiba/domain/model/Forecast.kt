@@ -14,6 +14,7 @@ package com.brunotiba.domain.model
  * @param humidity the current humidity in %
  * @param windSpeed the current wind speed
  * @param windDirection the current wind direction
+ * @param uvIndex the UV index
  */
 data class Forecast(
     val cityName: String,
@@ -26,5 +27,6 @@ data class Forecast(
     val pressure: Int,
     val humidity: Int,
     val windSpeed: Double,
-    val windDirection: Int
+    val windDirection: Int,
+    val uvIndex: Uv? = null
 )
