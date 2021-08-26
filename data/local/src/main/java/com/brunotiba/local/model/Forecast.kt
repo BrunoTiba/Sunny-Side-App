@@ -28,12 +28,14 @@ import java.util.Calendar
 
 @Entity(
     tableName = "forecast",
-    foreignKeys = [ForeignKey(
-        entity = Location::class,
-        parentColumns = ["location_id"],
-        childColumns = ["forecast_location_id"],
-        onDelete = ForeignKey.CASCADE
-    )],
+    foreignKeys = [
+        ForeignKey(
+            entity = Location::class,
+            parentColumns = ["location_id"],
+            childColumns = ["forecast_location_id"],
+            onDelete = ForeignKey.CASCADE
+        )
+    ],
     indices = [Index(value = ["forecast_location_id"])]
 )
 internal data class Forecast(

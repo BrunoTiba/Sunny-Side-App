@@ -2,9 +2,9 @@ object Versions {
     const val minSdk = 26
     const val targetSdk = 29
     const val compileSdk = 29
-    const val buildTools = "29.0.2"
+    const val buildTools = "30.0.2"
 
-    const val kotlinVersion = "1.3.61"
+    const val kotlinVersion = "1.5.30"
 
     const val androidXVersion = "1.1.0"
     const val constraintLayout = "1.1.3"
