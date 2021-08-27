@@ -6,6 +6,7 @@ object Versions {
 
     const val kotlinVersion = "1.5.30"
 
+    const val coreKtx = "1.6.0"
     const val androidXVersion = "1.3.1"
     const val constraintLayout = "2.1.0"
 
@@ -40,7 +41,7 @@ object Dependencies {
 }
 
 object AndroidX {
-    val core = "androidx.core:core-ktx:${Versions.androidXVersion}"
+    val core = "androidx.core:core-ktx:${Versions.coreKtx}"
     val appCompat = "androidx.appcompat:appcompat:${Versions.androidXVersion}"
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 }
