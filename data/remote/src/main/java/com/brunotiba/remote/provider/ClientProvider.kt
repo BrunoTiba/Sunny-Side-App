@@ -25,9 +25,11 @@ internal class ClientProvider {
      */
     fun getClient(parameters: List<QueryParameter>): OkHttpClient {
         val builder = client.newBuilder()
-            .addInterceptor(HttpLoggingInterceptor().apply {
-                setLevel(HttpLoggingInterceptor.Level.BASIC)
-            })
+            .addInterceptor(
+                HttpLoggingInterceptor().apply {
+                    setLevel(HttpLoggingInterceptor.Level.BASIC)
+                }
+            )
 
         parameters.forEach { param ->
             builder.addInterceptor(QueryParameterInterceptor(param))
