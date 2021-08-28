@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 apply from: "$rootDir/config/dependencies/android.gradle"
 apply from: "$rootDir/config/detekt/detekt.gradle"
@@ -16,6 +18,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     lintOptions {
@@ -38,7 +45,10 @@ dependencies {
     implementation Dependencies.toothpick.di
     implementation Dependencies.kotlinX.coroutinesCore
     implementation Dependencies.logging.timber
+    implementation Dependencies.hilt.hiltAndroid
     testImplementation Dependencies.test.junit
     androidTestImplementation Dependencies.test.androidJUnit
     androidTestImplementation Dependencies.test.espresso
+
+    kapt Dependencies.hilt.hiltCompiler
 }
