@@ -16,6 +16,8 @@ android {
 
 dependencies {
     implementation Dependencies.toothpick.di
+    implementation Dependencies.hilt.hiltAndroid
     implementation Dependencies.logging.timber
+    kapt Dependencies.hilt.hiltCompiler
     kapt Dependencies.toothpick.kapt
 }

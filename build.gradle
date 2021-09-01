@@ -12,9 +12,10 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jlleitschuh.gradle:ktlint-gradle:10.1.0"
+        classpath Dependencies.buildTools.gradle
+        classpath Dependencies.buildTools.kotlinGradlePlugin
+        classpath Dependencies.buildTools.ktlint
+        classpath Dependencies.hilt.hiltGradlePlugin
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

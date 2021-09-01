@@ -4,14 +4,13 @@ import com.brunotiba.remote.network.QueryParameter
 import com.brunotiba.remote.network.QueryParameterInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import toothpick.InjectConstructor
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 /**
  * Provides a HTTP Client.
  */
-@InjectConstructor
-internal class ClientProvider {
+class ClientProvider @Inject constructor(){
 
     private val client = OkHttpClient.Builder()
         .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)

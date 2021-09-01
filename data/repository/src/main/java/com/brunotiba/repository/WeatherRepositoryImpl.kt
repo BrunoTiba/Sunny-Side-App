@@ -5,7 +5,7 @@ import com.brunotiba.repository.datasource.ForecastCache
 import com.brunotiba.repository.datasource.WeatherDataSource
 import com.brunotiba.repository.mapper.ForecastMapper
 import timber.log.Timber
-import toothpick.InjectConstructor
+import javax.inject.Inject
 import com.brunotiba.domain.model.Forecast as DomainForecast
 import com.brunotiba.repository.model.Forecast as RepoForecast
 
@@ -17,8 +17,7 @@ import com.brunotiba.repository.model.Forecast as RepoForecast
  * @param forecastCache the [ForecastCache]
  * @param forecastMapper the mapper to convert [RepoForecast] and [DomainForecast]
  */
-@InjectConstructor
-internal class WeatherRepositoryImpl(
+class WeatherRepositoryImpl @Inject constructor(
     private val weatherDataSource: WeatherDataSource,
     private val forecastCache: ForecastCache,
     private val forecastMapper: ForecastMapper

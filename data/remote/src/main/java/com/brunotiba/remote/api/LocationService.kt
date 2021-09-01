@@ -3,13 +3,13 @@ package com.brunotiba.remote.api
 import com.brunotiba.remote.BuildConfig
 import com.brunotiba.remote.network.QueryParameter
 import com.brunotiba.remote.provider.RetrofitProvider
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 /**
  * Service responsible for fetching data from the geolocation api.
  */
-@InjectConstructor
-internal class LocationService(retrofitProvider: RetrofitProvider) : ApiService(retrofitProvider) {
+class LocationService @Inject constructor(retrofitProvider: RetrofitProvider)
+    : ApiService(retrofitProvider) {
 
     override val apiUrl: String
         get() = BuildConfig.GEOLOCATION_API_URL

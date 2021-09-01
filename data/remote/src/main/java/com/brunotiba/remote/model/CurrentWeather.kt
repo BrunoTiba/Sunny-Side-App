@@ -12,7 +12,7 @@ import com.squareup.moshi.Json
  * @param pressure the air pressure in hPa
  * @param humidity the humidity percentage
  */
-internal data class CurrentWeather(
+data class CurrentWeather(
     @field:Json(name = "temp") val temp: Double,
     @field:Json(name = "feels_like") val feelsLike: Double,
     @field:Json(name = "temp_min") val minTemp: Double,

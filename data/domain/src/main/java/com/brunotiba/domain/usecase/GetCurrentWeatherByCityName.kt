@@ -3,13 +3,12 @@ package com.brunotiba.domain.usecase
 import com.brunotiba.domain.model.Forecast
 import com.brunotiba.domain.repository.WeatherRepository
 import timber.log.Timber
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 /**
  * Use case to retrieve the current weather for the given city name.
  */
-@InjectConstructor
-class GetCurrentWeatherByCityName(
+class GetCurrentWeatherByCityName @Inject constructor(
     private val getLocationFromCityName: GetLocationFromCityName,
     private val getCurrentUvByCoordinates: GetCurrentUvByCoordinates,
     private val weatherRepository: WeatherRepository

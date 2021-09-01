@@ -2,13 +2,12 @@ package com.brunotiba.domain.usecase
 
 import com.brunotiba.domain.model.Uv
 import com.brunotiba.domain.repository.UvRepository
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 /**
  * Use case to retrieve the current ultraviolet level for the given coordinates.
  */
-@InjectConstructor
-class GetCurrentUvByCoordinates(private val uvRepository: UvRepository) {
+class GetCurrentUvByCoordinates @Inject constructor(private val uvRepository: UvRepository) {
 
     /**
      * Gets the current ultraviolet level for the given coordinates.

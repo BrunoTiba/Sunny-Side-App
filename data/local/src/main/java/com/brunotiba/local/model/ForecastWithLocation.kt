@@ -8,7 +8,7 @@ import androidx.room.Embedded
  * @param forecast the Local forecast
  * @param location the Local location
  */
-internal data class ForecastWithLocation(
+data class ForecastWithLocation(
     @Embedded val location: Location,
     @Embedded val forecast: Forecast
 )

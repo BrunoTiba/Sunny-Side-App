@@ -1,14 +1,13 @@
 package com.brunotiba.local.provider
 
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 /**
  * Provider for all the Sunny Side database Daos.
  *
  * @param databaseProvider the [DatabaseProvider]
  */
-@InjectConstructor
-internal class DaoProvider(private val databaseProvider: DatabaseProvider) {
+class DaoProvider @Inject constructor(private val databaseProvider: DatabaseProvider) {
 
     /**
      * Retrieves the Forecast Dao.

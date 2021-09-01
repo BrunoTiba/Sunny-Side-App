@@ -6,14 +6,22 @@ import com.brunotiba.domain.repository.WeatherRepository
 import com.brunotiba.repository.LocationRepositoryImpl
 import com.brunotiba.repository.UvRepositoryImpl
 import com.brunotiba.repository.WeatherRepositoryImpl
-import toothpick.config.Module
-import toothpick.ktp.binding.bind
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
-val repositoryModule = object : Module() {
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class RepositoryModule {
 
-    init {
-        bind(WeatherRepository::class).toClass<WeatherRepositoryImpl>()
-        bind(UvRepository::class).toClass<UvRepositoryImpl>()
-        bind(LocationRepository::class).toClass<LocationRepositoryImpl>()
-    }
+    @Binds
+    abstract fun bindWeatherRepository(weatherRepository: WeatherRepositoryImpl): WeatherRepository
+
+    @Binds
+    abstract fun bindUvRepository(uvRepository: UvRepositoryImpl): UvRepository
+
+    @Binds
+    abstract fun bindLocationRepository(locationRepository: LocationRepositoryImpl):
+            LocationRepository
 }

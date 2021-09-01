@@ -1,15 +1,14 @@
 package com.brunotiba.remote.mapper
 
-import toothpick.InjectConstructor
 import java.util.Calendar
+import javax.inject.Inject
 import com.brunotiba.remote.model.Forecast as RemoteForecast
 import com.brunotiba.repository.model.Forecast as RepoForecast
 
 /**
  * Mapper class to convert Forecast representations of Domain and Repository modules.
  */
-@InjectConstructor
-internal class ForecastMapper {
+class ForecastMapper @Inject constructor(){
 
     /**
      * Converts a Remote representation of the Forecast to a Repository representation.

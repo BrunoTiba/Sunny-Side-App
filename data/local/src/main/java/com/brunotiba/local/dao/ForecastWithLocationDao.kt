@@ -9,7 +9,7 @@ import com.brunotiba.local.model.ForecastWithLocation
  * Dao interface for accessing [ForecastWithLocation] data.
  */
 @Dao
-internal interface ForecastWithLocationDao {
+interface ForecastWithLocationDao {
 
     /**
      * Retrieves all the available Forecasts.

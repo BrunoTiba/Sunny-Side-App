@@ -5,13 +5,12 @@ import com.brunotiba.domain.repository.LocationRepository
 import com.brunotiba.repository.datasource.LocationDataSource
 import com.brunotiba.repository.mapper.LocationMapper
 import timber.log.Timber
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 /**
  * [LocationRepository] implementation.
  */
-@InjectConstructor
-internal class LocationRepositoryImpl(
+class LocationRepositoryImpl @Inject constructor(
     private val locationDataSource: LocationDataSource,
     private val mapper: LocationMapper
 ) : LocationRepository {

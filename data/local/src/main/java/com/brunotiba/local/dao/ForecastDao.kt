@@ -9,7 +9,7 @@ import com.brunotiba.local.model.Forecast
  * Dao interface for accessing [Forecast] data.
  */
 @Dao
-internal interface ForecastDao {
+interface ForecastDao {
 
     @Insert
     fun insert(forecast: Forecast)

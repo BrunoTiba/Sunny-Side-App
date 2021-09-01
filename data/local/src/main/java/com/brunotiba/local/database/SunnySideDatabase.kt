@@ -15,7 +15,7 @@ import com.brunotiba.local.model.Location
  */
 @Database(entities = [Forecast::class, Location::class], version = 1)
 @TypeConverters(CalendarConverter::class)
-internal abstract class SunnySideDatabase : RoomDatabase() {
+abstract class SunnySideDatabase : RoomDatabase() {
     abstract fun getForecastDao(): ForecastDao
     abstract fun getLocationDao(): LocationDao
     abstract fun getForecastWithLocationDao(): ForecastWithLocationDao

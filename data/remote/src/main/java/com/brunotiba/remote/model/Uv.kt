@@ -11,7 +11,7 @@ import com.squareup.moshi.Json
  * @param date ISO 8601 timestamp
  * @param value ultraviolet index
  */
-internal data class Uv(
+data class Uv(
     @field:Json(name = "lat") val lat: Double,
     @field:Json(name = "lon") val lon: Double,
     @field:Json(name = "date_iso") val dateIso: String,
