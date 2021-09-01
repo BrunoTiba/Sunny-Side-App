@@ -8,7 +8,9 @@ import javax.inject.Inject
 /**
  * Use case to retrieve the geolocation for the given city name.
  */
-class GetLocationFromCityName @Inject constructor(private val locationRepository: LocationRepository) {
+class GetLocationFromCityName @Inject constructor(
+    private val locationRepository: LocationRepository
+) {
 
     /**
      * Retrieves the geolocation of the given city name.

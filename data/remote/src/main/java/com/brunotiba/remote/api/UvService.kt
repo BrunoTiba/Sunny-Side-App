@@ -10,7 +10,9 @@ import javax.inject.Singleton
  * Service responsible for fetching data from Uv api.
  */
 @Singleton
-class UvService @Inject constructor(retrofitProvider: RetrofitProvider) : ApiService(retrofitProvider) {
+class UvService @Inject constructor(
+    retrofitProvider: RetrofitProvider
+) : ApiService(retrofitProvider) {
 
     override val apiUrl: String
         get() = BuildConfig.WEATHER_API_URL

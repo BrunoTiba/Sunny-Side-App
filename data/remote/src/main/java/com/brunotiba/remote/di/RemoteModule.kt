@@ -22,5 +22,6 @@ abstract class RemoteModule {
     abstract fun bindUvDataSource(uvDataSource: UvDataSourceImpl): UvDataSource
 
     @Binds
-    abstract fun bindLocationDataSource(locationDataSource: LocationDataSourceImpl): LocationDataSource
+    abstract fun bindLocationDataSource(locationDataSource: LocationDataSourceImpl):
+        LocationDataSource
 }

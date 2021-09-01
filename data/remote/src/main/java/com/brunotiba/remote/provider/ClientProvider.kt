@@ -10,7 +10,7 @@ import javax.inject.Inject
 /**
  * Provides a HTTP Client.
  */
-class ClientProvider @Inject constructor(){
+class ClientProvider @Inject constructor() {
 
     private val client = OkHttpClient.Builder()
         .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)

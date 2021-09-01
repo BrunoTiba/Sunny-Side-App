@@ -8,8 +8,9 @@ import javax.inject.Inject
 /**
  * Service responsible for fetching data from the geolocation api.
  */
-class LocationService @Inject constructor(retrofitProvider: RetrofitProvider)
-    : ApiService(retrofitProvider) {
+class LocationService @Inject constructor(
+    retrofitProvider: RetrofitProvider
+) : ApiService(retrofitProvider) {
 
     override val apiUrl: String
         get() = BuildConfig.GEOLOCATION_API_URL
