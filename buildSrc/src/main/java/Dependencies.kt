@@ -13,7 +13,6 @@ object Versions {
     const val constraintLayout = "2.1.0"
 
     const val hilt = "2.38.1"
-    const val toothpick = "3.1.0"
 
     const val loggingInterceptor = "4.9.1"
     const val retrofit = "2.9.0"
@@ -35,7 +34,6 @@ object Dependencies {
 
     val androidX = AndroidX
     val test = Test
-    val toothpick = Toothpick
     val okHttp = OkHttp
     val retrofit = Retrofit
     val room = Room
@@ -91,15 +89,7 @@ object Test {
     val junit = "junit:junit:${Versions.junit}"
     val androidJUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
     val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
-    val toothpick = "com.github.stephanenicolas.toothpick:toothpick-testing:${Versions.toothpick}"
-    val toothpickJUnit =
-        "com.github.stephanenicolas.toothpick:toothpick-testing-junit4:${Versions.toothpick}"
     val mockk = "io.mockk:mockk:${Versions.mockk}"
     val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     val room = "androidx.room:room-testing:${Versions.room}"
-}
-
-object Toothpick {
-    val di = "com.github.stephanenicolas.toothpick:ktp:${Versions.toothpick}"
-    val kapt = "com.github.stephanenicolas.toothpick:toothpick-compiler:${Versions.toothpick}"
 }
