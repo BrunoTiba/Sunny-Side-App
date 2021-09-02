@@ -8,7 +8,7 @@ import com.brunotiba.local.model.Location
  * Dao interface for accessing [Location] data.
  */
 @Dao
-internal interface LocationDao {
+interface LocationDao {
 
     /**
      * Inserts a new location.

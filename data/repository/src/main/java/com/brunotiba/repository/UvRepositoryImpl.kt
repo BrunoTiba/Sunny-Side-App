@@ -4,10 +4,9 @@ import com.brunotiba.domain.model.Uv
 import com.brunotiba.domain.repository.UvRepository
 import com.brunotiba.repository.datasource.UvDataSource
 import com.brunotiba.repository.mapper.UvMapper
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
-@InjectConstructor
-internal class UvRepositoryImpl(
+class UvRepositoryImpl @Inject constructor(
     private val uvDataSource: UvDataSource,
     private val uvMapper: UvMapper
 ) : UvRepository {

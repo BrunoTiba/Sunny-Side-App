@@ -6,7 +6,7 @@ package com.brunotiba.remote.network
  * @param query the name of the query parameter
  * @param value the value of the query parameter
  */
-internal data class QueryParameter(
+data class QueryParameter(
     val query: String,
     val value: String
 )

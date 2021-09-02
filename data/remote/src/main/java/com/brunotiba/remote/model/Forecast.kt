@@ -16,7 +16,7 @@ import com.squareup.moshi.Json
  * @param timezone the timezone of the location
  * @param dt the date of the forecast
  */
-internal data class Forecast(
+data class Forecast(
     @field:Json(name = "id") val id: Int,
     @field:Json(name = "name") val name: String,
     @field:Json(name = "coord") val coord: Coordinates,

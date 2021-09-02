@@ -3,13 +3,12 @@ package com.brunotiba.remote
 import com.brunotiba.remote.api.LocationService
 import com.brunotiba.repository.datasource.LocationDataSource
 import com.brunotiba.repository.model.Location
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 /**
  * [LocationDataSource] implementation that fetches the location data from an endpoint.
  */
-@InjectConstructor
-internal class LocationDataSourceImpl(
+class LocationDataSourceImpl @Inject constructor(
     private val locationService: LocationService
 ) : LocationDataSource {
 

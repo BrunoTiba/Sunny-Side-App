@@ -1,14 +1,13 @@
 package com.brunotiba.repository.mapper
 
-import toothpick.InjectConstructor
+import javax.inject.Inject
 import com.brunotiba.domain.model.Forecast as DomainForecast
 import com.brunotiba.repository.model.Forecast as RepoForecast
 
 /**
  * Mapper class to convert Forecast representations of Domain and Repository modules.
  */
-@InjectConstructor
-internal class ForecastMapper {
+class ForecastMapper @Inject constructor() {
 
     /**
      * Converts a Repository representation of the Forecast to a Domain representation.

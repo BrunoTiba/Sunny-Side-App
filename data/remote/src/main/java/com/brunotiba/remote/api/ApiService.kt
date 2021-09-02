@@ -6,7 +6,7 @@ import com.brunotiba.remote.provider.RetrofitProvider
 /**
  * Abstract class to encapsulate the API creation.
  */
-internal abstract class ApiService(private val retrofitProvider: RetrofitProvider) {
+abstract class ApiService(val retrofitProvider: RetrofitProvider) {
 
     abstract val apiUrl: String
 

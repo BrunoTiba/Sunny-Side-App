@@ -3,15 +3,16 @@ package com.brunotiba.remote.api
 import com.brunotiba.remote.BuildConfig
 import com.brunotiba.remote.network.QueryParameter
 import com.brunotiba.remote.provider.RetrofitProvider
-import toothpick.InjectConstructor
+import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
  * Service responsible for fetching data from the weather api.
  */
-@InjectConstructor
 @Singleton
-internal class WeatherService(retrofitProvider: RetrofitProvider) : ApiService(retrofitProvider) {
+class WeatherService @Inject constructor(
+    retrofitProvider: RetrofitProvider
+) : ApiService(retrofitProvider) {
 
     override val apiUrl: String
         get() = BuildConfig.WEATHER_API_URL

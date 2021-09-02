@@ -2,15 +2,14 @@ package com.brunotiba.local.mapper
 
 import com.brunotiba.local.model.ForecastWithLocation
 import com.brunotiba.local.model.Location
-import toothpick.InjectConstructor
+import javax.inject.Inject
 import com.brunotiba.local.model.Forecast as LocalForecast
 import com.brunotiba.repository.model.Forecast as RepoForecast
 
 /**
  * Mapper class to convert Forecast representations of Repository and Local modules.
  */
-@InjectConstructor
-internal class ForecastMapper {
+class ForecastMapper @Inject constructor() {
 
     /**
      * Converts a Local representation of the Forecast to a Repository representation.

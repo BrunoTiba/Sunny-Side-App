@@ -38,7 +38,7 @@ import java.util.Calendar
     ],
     indices = [Index(value = ["forecast_location_id"])]
 )
-internal data class Forecast(
+data class Forecast(
     @ColumnInfo(name = "forecast_id") @PrimaryKey(autoGenerate = true) val id: Long = 0,
     @ColumnInfo(name = "forecast_city_name") val cityName: String?,
     @ColumnInfo(name = "forecast_location_id") val locationId: Long? = null,

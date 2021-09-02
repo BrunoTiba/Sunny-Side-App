@@ -3,13 +3,12 @@ package com.brunotiba.remote.provider
 import com.brunotiba.remote.network.QueryParameter
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 /**
  * Provides the Retrofit implementation.
  */
-@InjectConstructor
-internal class RetrofitProvider(private val clientProvider: ClientProvider) {
+class RetrofitProvider @Inject constructor(private val clientProvider: ClientProvider) {
 
     /**
      * Gets the Retrofit implementation based on the given information.

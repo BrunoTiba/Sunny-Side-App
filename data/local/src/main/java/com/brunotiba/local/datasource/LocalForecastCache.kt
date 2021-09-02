@@ -5,7 +5,7 @@ import com.brunotiba.local.provider.DaoProvider
 import com.brunotiba.repository.datasource.ForecastCache
 import com.brunotiba.repository.model.Forecast
 import timber.log.Timber
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 /**
  * [ForecastCache] implementation that stores the [Forecast] data in a database.
@@ -13,8 +13,7 @@ import toothpick.InjectConstructor
  * @param daoProvider the [DaoProvider]
  * @param forecastMapper the [ForecastMapper]
  */
-@InjectConstructor
-internal class LocalForecastCache(
+class LocalForecastCache @Inject constructor(
     private val daoProvider: DaoProvider,
     private val forecastMapper: ForecastMapper
 ) : ForecastCache {

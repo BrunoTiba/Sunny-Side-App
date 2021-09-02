@@ -4,10 +4,9 @@ import com.brunotiba.remote.api.UvService
 import com.brunotiba.remote.mapper.UvMapper
 import com.brunotiba.repository.datasource.UvDataSource
 import com.brunotiba.repository.model.Uv
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
-@InjectConstructor
-internal class UvDataSourceImpl(
+class UvDataSourceImpl @Inject constructor(
     private val uvService: UvService,
     private val mapper: UvMapper
 ) : UvDataSource {

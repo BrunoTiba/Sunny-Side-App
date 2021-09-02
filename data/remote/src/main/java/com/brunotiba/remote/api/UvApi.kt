@@ -7,7 +7,7 @@ import retrofit2.http.Query
 /**
  * Interface representing the Uv API.
  */
-internal interface UvApi {
+interface UvApi {
 
     /**
      * Retrieves the current Uv index.

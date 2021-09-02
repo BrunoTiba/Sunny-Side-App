@@ -1,24 +1,16 @@
 package com.brunotiba.local.di
 
-import android.app.Application
 import com.brunotiba.local.datasource.LocalForecastCache
-import com.brunotiba.local.mapper.ForecastMapper
-import com.brunotiba.local.provider.DaoProvider
-import com.brunotiba.local.provider.DatabaseProvider
 import com.brunotiba.repository.datasource.ForecastCache
-import toothpick.config.Module
-import toothpick.ktp.binding.bind
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
-class LocalModule(application: Application) : Module() {
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class LocalModule {
 
-    init {
-        bind(ForecastCache::class).toClass<LocalForecastCache>()
-
-        // Provider
-        bind(DatabaseProvider::class).toInstance(DatabaseProvider(application))
-        bind(DaoProvider::class).toClass<DaoProvider>()
-
-        // Mapper
-        bind(ForecastMapper::class).toClass<ForecastMapper>()
-    }
+    @Binds
+    abstract fun bindForecastCache(forecastCache: LocalForecastCache): ForecastCache
 }

@@ -3,13 +3,14 @@ package com.brunotiba.domain.usecase
 import com.brunotiba.domain.model.Location
 import com.brunotiba.domain.repository.LocationRepository
 import timber.log.Timber
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
 /**
  * Use case to retrieve the geolocation for the given city name.
  */
-@InjectConstructor
-class GetLocationFromCityName(private val locationRepository: LocationRepository) {
+class GetLocationFromCityName @Inject constructor(
+    private val locationRepository: LocationRepository
+) {
 
     /**
      * Retrieves the geolocation of the given city name.

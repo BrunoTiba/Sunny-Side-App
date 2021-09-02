@@ -5,10 +5,9 @@ import com.brunotiba.remote.mapper.ForecastMapper
 import com.brunotiba.repository.datasource.WeatherDataSource
 import com.brunotiba.repository.model.Forecast
 import timber.log.Timber
-import toothpick.InjectConstructor
+import javax.inject.Inject
 
-@InjectConstructor
-internal class WeatherDataSourceImpl(
+class WeatherDataSourceImpl @Inject constructor(
     private val weatherService: WeatherService,
     private val mapper: ForecastMapper
 ) : WeatherDataSource {
