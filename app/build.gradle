@@ -38,6 +38,7 @@ dependencies {
     implementation project(":data:repository")
     implementation project(":data:remote")
     implementation project(":data:local")
+    implementation project(":feature:forecastList")
 
     implementation Dependencies.kotlin
     implementation Dependencies.androidX.appCompat

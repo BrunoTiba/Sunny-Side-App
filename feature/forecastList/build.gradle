@@ -1,0 +1,17 @@
+apply from: "${rootDir}/config/dependencies/features.gradle"
+apply from: "${rootDir}/config/dependencies/android.gradle"
+apply from: "${rootDir}/config/dependencies/test.gradle"
+
+android {
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    androidTestImplementation Dependencies.test.androidJUnit
+    androidTestImplementation Dependencies.test.espresso
+}
