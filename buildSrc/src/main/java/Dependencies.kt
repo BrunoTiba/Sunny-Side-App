@@ -14,6 +14,8 @@ object Versions {
 
     const val hilt = "2.38.1"
 
+    const val navigation = "2.3.5"
+
     const val loggingInterceptor = "4.9.1"
     const val retrofit = "2.9.0"
 
@@ -41,6 +43,7 @@ object Dependencies {
     val logging = Logging
     val hilt = Hilt
     val buildTools = BuildTools
+    val navigation = Navigation
 }
 
 object AndroidX {
@@ -68,6 +71,11 @@ object KotlinX {
 
 object Logging {
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+}
+
+object Navigation {
+    val fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    val ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 }
 
 object OkHttp {
