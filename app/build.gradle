@@ -38,6 +38,8 @@ dependencies {
     implementation project(":data:repository")
     implementation project(":data:remote")
     implementation project(":data:local")
+    implementation project(":feature:forecastList")
+
     implementation Dependencies.kotlin
     implementation Dependencies.androidX.appCompat
     implementation Dependencies.androidX.core
@@ -45,7 +47,11 @@ dependencies {
     implementation Dependencies.kotlinX.coroutinesCore
     implementation Dependencies.logging.timber
     implementation Dependencies.hilt.hiltAndroid
+    implementation Dependencies.navigation.fragment
+    implementation Dependencies.navigation.ui
+
     testImplementation Dependencies.test.junit
+
     androidTestImplementation Dependencies.test.androidJUnit
     androidTestImplementation Dependencies.test.espresso
 
