@@ -3,6 +3,10 @@ apply from: "${rootDir}/config/dependencies/android.gradle"
 apply from: "${rootDir}/config/dependencies/test.gradle"
 
 android {
+    buildFeatures {
+        viewBinding true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -12,6 +16,8 @@ android {
 }
 
 dependencies {
+    implementation Dependencies.androidX.core
+    implementation Dependencies.androidX.constraintLayout
     androidTestImplementation Dependencies.test.androidJUnit
     androidTestImplementation Dependencies.test.espresso
 }
