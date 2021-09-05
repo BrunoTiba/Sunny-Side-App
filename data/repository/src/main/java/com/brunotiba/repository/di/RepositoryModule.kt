@@ -1,9 +1,11 @@
 package com.brunotiba.repository.di
 
 import com.brunotiba.domain.repository.LocationRepository
+import com.brunotiba.domain.repository.SelectedLocationRepository
 import com.brunotiba.domain.repository.UvRepository
 import com.brunotiba.domain.repository.WeatherRepository
 import com.brunotiba.repository.LocationRepositoryImpl
+import com.brunotiba.repository.SelectedLocationRepositoryImpl
 import com.brunotiba.repository.UvRepositoryImpl
 import com.brunotiba.repository.WeatherRepositoryImpl
 import dagger.Binds
@@ -23,5 +25,9 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindLocationRepository(locationRepository: LocationRepositoryImpl):
-        LocationRepository
+            LocationRepository
+
+    @Binds
+    abstract fun bindSelectedLocationRepository(locationRepository: SelectedLocationRepositoryImpl):
+            SelectedLocationRepository
 }
