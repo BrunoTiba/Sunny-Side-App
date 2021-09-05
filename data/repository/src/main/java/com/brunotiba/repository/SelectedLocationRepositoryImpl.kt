@@ -5,6 +5,9 @@ import com.brunotiba.repository.datasource.LocationDataSource
 import com.brunotiba.repository.datasource.SelectedLocationDataSource
 import javax.inject.Inject
 
+/**
+ * [SelectedLocationRepository] implementation.
+ */
 class SelectedLocationRepositoryImpl @Inject constructor(
     private val locationDataSource: LocationDataSource,
     private val selectedLocationDataSource: SelectedLocationDataSource
