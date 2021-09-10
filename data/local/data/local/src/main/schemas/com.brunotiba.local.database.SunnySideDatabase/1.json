@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "db22d4d223a690fb1331408898c44b19",
+    "identityHash": "b335c80b5ebbe6200c59332932fdaed7",
     "entities": [
       {
         "tableName": "forecast",
@@ -160,12 +160,56 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "selected_location",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`selected_location_priority` INTEGER NOT NULL, `location_id` INTEGER, `location_latitude` REAL, `location_longitude` REAL, `location_name` TEXT, PRIMARY KEY(`location_id`))",
+        "fields": [
+          {
+            "fieldPath": "priority",
+            "columnName": "selected_location_priority",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "location.id",
+            "columnName": "location_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "location.latitude",
+            "columnName": "location_latitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "location.longitude",
+            "columnName": "location_longitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "location.name",
+            "columnName": "location_name",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "location_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'db22d4d223a690fb1331408898c44b19')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b335c80b5ebbe6200c59332932fdaed7')"
     ]
   }
 }

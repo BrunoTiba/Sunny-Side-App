@@ -30,4 +30,11 @@ class DaoProvider @Inject constructor(private val databaseProvider: DatabaseProv
      */
     fun getForecastWithLocationDao() =
         databaseProvider.database.getForecastWithLocationDao()
+
+    /**
+     * Retrieves the SelectedLocation Dao.
+     *
+     * @return the SelectedLocation Dao
+     */
+    fun getSelectedLocationDao() = databaseProvider.database.getSelectedLocationDao()
 }
