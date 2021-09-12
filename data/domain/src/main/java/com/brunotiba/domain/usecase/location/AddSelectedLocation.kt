@@ -1,4 +1,4 @@
-package com.brunotiba.domain.usecase
+package com.brunotiba.domain.usecase.location
 
 import com.brunotiba.domain.repository.SelectedLocationRepository
 import javax.inject.Inject

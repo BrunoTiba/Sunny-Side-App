@@ -1,7 +1,7 @@
-package com.brunotiba.domain
+package com.brunotiba.domain.forecast
 
 import com.brunotiba.domain.repository.UvRepository
-import com.brunotiba.domain.usecase.GetCurrentUvByCoordinates
+import com.brunotiba.domain.usecase.forecast.GetCurrentUvByCoordinates
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
