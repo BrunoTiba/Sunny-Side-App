@@ -2,8 +2,11 @@ package com.brunotiba.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Update
 import com.brunotiba.local.model.SelectedLocation
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Dao for accessing the [SelectedLocation] data.
@@ -28,4 +31,20 @@ interface SelectedLocationDao {
      */
     @Update
     fun update(selectedLocation: SelectedLocation): Int
+
+    @Transaction
+    @Query(
+        """
+        SELECT * FROM selected_location WHERE location_name = :name
+    """
+    )
+    fun getSelectedLocationByName(name: String): List<SelectedLocation>
+
+    @Transaction
+    @Query(
+        """
+        SELECT * FROM selected_location ORDER BY selected_location_priority
+    """
+    )
+    fun getSelectedLocations(): Flow<List<SelectedLocation>>
 }
