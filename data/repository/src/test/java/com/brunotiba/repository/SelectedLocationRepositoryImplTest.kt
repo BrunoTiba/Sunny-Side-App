@@ -30,7 +30,7 @@ class SelectedLocationRepositoryImplTest {
     }
 
     @Test
-    fun `Check if when adding selected location, the data source is invoked with the correct arguments`() =
+    fun `Check if when adding selected location, data source is invoked with correct arguments`() =
         runBlockingTest {
             val locationName = "Somewhere"
             locationRepository.addSelectedLocation(locationName)

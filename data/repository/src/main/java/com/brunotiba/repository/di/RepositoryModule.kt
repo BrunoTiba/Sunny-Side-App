@@ -25,7 +25,7 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindLocationRepository(locationRepository: LocationRepositoryImpl):
-            LocationRepository
+        LocationRepository
 
     @Binds
     abstract fun bindSelectedLocationRepository(locationRepository: SelectedLocationRepositoryImpl):

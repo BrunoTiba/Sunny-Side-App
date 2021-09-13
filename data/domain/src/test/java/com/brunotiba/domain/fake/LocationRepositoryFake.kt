@@ -24,5 +24,4 @@ internal class LocationRepositoryFake : SelectedLocationRepository {
     fun clear() {
         locations.clear()
     }
-
 }
