@@ -25,6 +25,7 @@ android {
 dependencies {
     implementation project(':data:repository')
     implementation Dependencies.room.runtime
+    implementation Dependencies.room.kotlinExtensions
     kapt Dependencies.room.kapt
     testImplementation Dependencies.test.junit
     testImplementation Dependencies.test.room

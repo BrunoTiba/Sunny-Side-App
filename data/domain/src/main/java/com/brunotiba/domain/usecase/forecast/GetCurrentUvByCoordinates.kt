@@ -1,4 +1,4 @@
-package com.brunotiba.domain.usecase
+package com.brunotiba.domain.usecase.forecast
 
 import com.brunotiba.domain.model.Uv
 import com.brunotiba.domain.repository.UvRepository

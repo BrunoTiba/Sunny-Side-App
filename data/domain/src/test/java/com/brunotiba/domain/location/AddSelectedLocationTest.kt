@@ -1,9 +1,11 @@
-package com.brunotiba.domain
+package com.brunotiba.domain.location
 
 import com.brunotiba.domain.fake.LocationRepositoryFake
-import com.brunotiba.domain.usecase.AddSelectedLocation
+import com.brunotiba.domain.usecase.location.AddSelectedLocation
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 
 class AddSelectedLocationTest {
@@ -18,6 +20,8 @@ class AddSelectedLocationTest {
 
         addSelectedLocation(locationName)
 
-        assertEquals(locationName, locationRepository.locationName)
+        val result = locationRepository.getSelectedLocations().first()
+        assertNotNull(result)
+        assertEquals(locationName, result.firstOrNull()?.name)
     }
 }

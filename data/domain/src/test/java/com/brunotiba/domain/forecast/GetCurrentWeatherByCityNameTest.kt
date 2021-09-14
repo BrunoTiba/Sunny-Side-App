@@ -1,12 +1,12 @@
-package com.brunotiba.domain
+package com.brunotiba.domain.forecast
 
 import com.brunotiba.domain.model.Forecast
 import com.brunotiba.domain.model.Location
 import com.brunotiba.domain.model.Uv
 import com.brunotiba.domain.repository.WeatherRepository
-import com.brunotiba.domain.usecase.GetCurrentUvByCoordinates
-import com.brunotiba.domain.usecase.GetCurrentWeatherByCityName
-import com.brunotiba.domain.usecase.GetLocationFromCityName
+import com.brunotiba.domain.usecase.forecast.GetCurrentUvByCoordinates
+import com.brunotiba.domain.usecase.forecast.GetCurrentWeatherByCityName
+import com.brunotiba.domain.usecase.forecast.GetLocationFromCityName
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

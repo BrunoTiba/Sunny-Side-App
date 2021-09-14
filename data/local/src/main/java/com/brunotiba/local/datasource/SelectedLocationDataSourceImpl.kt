@@ -5,8 +5,12 @@ import com.brunotiba.local.model.Location as LocalLocation
 import com.brunotiba.local.model.SelectedLocation
 import com.brunotiba.local.provider.DaoProvider
 import com.brunotiba.repository.datasource.SelectedLocationDataSource
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import com.brunotiba.repository.model.Location as RepoLocation
 import javax.inject.Inject
+
+private const val OPERATION_ERROR = -1L
 
 /**
  * [SelectedLocationDataSource] implementation.
@@ -37,12 +41,27 @@ class SelectedLocationDataSourceImpl @Inject constructor(
     }
 
     private fun updateLocation(repoLocation: LocalLocation): Long {
+        repoLocation.name ?: return OPERATION_ERROR
+
         val selectedLocation = SelectedLocation(location = repoLocation)
-        val updatedRows = daoProvider.getSelectedLocationDao().update(selectedLocation)
+        val selectedLocations = daoProvider.getSelectedLocationDao()
+            .getSelectedLocationByName(repoLocation.name)
+        val updatedRows = if (selectedLocations.isEmpty()) {
+            daoProvider.getSelectedLocationDao().insert(selectedLocation)
+        } else {
+            daoProvider.getSelectedLocationDao().update(selectedLocation).toLong()
+        }
+
         return if (updatedRows > 0) {
             1
         } else {
-            -1
+            OPERATION_ERROR
+        }
+    }
+
+    override fun getSelectedLocations(): Flow<List<RepoLocation>> {
+        return daoProvider.getSelectedLocationDao().getSelectedLocations().map { localLocations ->
+            localLocations.map { locationMapper.toRepo(it.location) }
         }
     }
 }
