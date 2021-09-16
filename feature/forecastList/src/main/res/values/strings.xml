@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="forecast_list_fragment_add_new_location_button">Add new location</string>
+</resources>
