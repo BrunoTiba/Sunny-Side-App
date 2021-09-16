@@ -1,3 +1,4 @@
+apply plugin: 'dagger.hilt.android.plugin'
 apply from: "${rootDir}/config/dependencies/features.gradle"
 apply from: "${rootDir}/config/dependencies/android.gradle"
 apply from: "${rootDir}/config/dependencies/test.gradle"
@@ -16,8 +17,14 @@ android {
 }
 
 dependencies {
+    implementation project(":data:domain")
+
     implementation Dependencies.androidX.core
     implementation Dependencies.androidX.constraintLayout
+    implementation Dependencies.androidX.fragment
+    implementation Dependencies.androidX.recyclerView
+    implementation Dependencies.lifecycle.viewModelScope
+    implementation Dependencies.lifecycle.liveData
     androidTestImplementation Dependencies.test.androidJUnit
     androidTestImplementation Dependencies.test.espresso
 }

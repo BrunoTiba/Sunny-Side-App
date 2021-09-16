@@ -11,6 +11,7 @@ object Versions {
     const val coreKtx = "1.6.0"
     const val androidXVersion = "1.3.1"
     const val constraintLayout = "2.1.0"
+    const val recyclerView = "1.2.1"
 
     const val hilt = "2.38.1"
 
@@ -24,6 +25,10 @@ object Versions {
     const val room = "2.3.0"
 
     const val timber = "5.0.1"
+
+    const val fragment = "1.3.6"
+
+    const val lifecycle = "2.2.0"
 
     const val junit = "4.13.2"
     const val androidJUnit = "1.1.3"
@@ -40,6 +45,7 @@ object Dependencies {
     val retrofit = Retrofit
     val room = Room
     val kotlinX = KotlinX
+    val lifecycle = Lifecycle
     val logging = Logging
     val hilt = Hilt
     val buildTools = BuildTools
@@ -50,6 +56,8 @@ object AndroidX {
     val core = "androidx.core:core-ktx:${Versions.coreKtx}"
     val appCompat = "androidx.appcompat:appcompat:${Versions.androidXVersion}"
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
+    val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
 }
 
 object BuildTools {
@@ -67,6 +75,12 @@ object Hilt {
 object KotlinX {
     val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+}
+
+object Lifecycle {
+    val viewModelScope = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    val lifecycleScope = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
+    val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
 }
 
 object Logging {
