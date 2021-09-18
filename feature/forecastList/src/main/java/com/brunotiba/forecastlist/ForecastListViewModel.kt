@@ -17,10 +17,16 @@ class ForecastListViewModel @Inject constructor(
     private val getSelectedLocations: GetSelectedLocations
 ) : ViewModel() {
 
-    val forecasts: LiveData<List<Forecast>> = liveData {
+    val forecasts: LiveData<ForecastListState> = liveData {
+        emit(ForecastListState.Loading)
         getSelectedLocations().collect { locations ->
-            val forecasts = locations.map { Forecast(it.name) }
-            emit(forecasts)
+            val state = if (locations.isEmpty()) {
+                ForecastListState.Empty
+            } else {
+                val forecasts = locations.map { Forecast(it.name) }
+                ForecastListState.Ready(forecasts)
+            }
+            emit(state)
         }
     }
 }

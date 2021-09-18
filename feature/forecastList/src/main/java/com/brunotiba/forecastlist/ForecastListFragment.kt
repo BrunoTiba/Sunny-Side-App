@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.brunotiba.forecastlist.databinding.ForecastListFragmentBinding
+import com.brunotiba.forecastlist.model.Forecast
 import com.hoc081098.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -33,16 +34,38 @@ class ForecastListFragment : Fragment(R.layout.forecast_list_fragment) {
     }
 
     private fun observeData() {
-        viewModel.forecasts.observe(viewLifecycleOwner, { result ->
-            Timber.d("Got $result")
-            adapter.updateData(result)
-            if (result.isEmpty()) {
-                binding.emptyText.visibility = View.VISIBLE
-                binding.forecastRecyclerView.visibility = View.GONE
-            } else {
-                binding.emptyText.visibility = View.GONE
-                binding.forecastRecyclerView.visibility = View.VISIBLE
+        viewModel.forecasts.observe(viewLifecycleOwner, { state ->
+            Timber.d("observeData: $state")
+            when (state) {
+                ForecastListState.Loading -> showLoading()
+                ForecastListState.Empty -> showEmptyScreen()
+                is ForecastListState.Ready -> showListScreen(state.forecasts)
             }
         })
+    }
+
+    private fun showLoading() {
+        binding.apply {
+            progressBar.visibility = View.VISIBLE
+            emptyText.visibility = View.GONE
+            forecastRecyclerView.visibility = View.GONE
+        }
+    }
+
+    private fun showEmptyScreen() {
+        binding.apply {
+            progressBar.visibility = View.GONE
+            emptyText.visibility = View.VISIBLE
+            forecastRecyclerView.visibility = View.GONE
+        }
+    }
+
+    private fun showListScreen(forecasts: List<Forecast>) {
+        adapter.updateData(forecasts)
+        binding.apply {
+            progressBar.visibility = View.GONE
+            emptyText.visibility = View.GONE
+            forecastRecyclerView.visibility = View.VISIBLE
+        }
     }
 }
