@@ -9,6 +9,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
+/**
+ * The View Model containing the logic to display a forecast list.
+ */
 @HiltViewModel
 class ForecastListViewModel @Inject constructor(
     private val getSelectedLocations: GetSelectedLocations
