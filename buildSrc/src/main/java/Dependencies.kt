@@ -30,6 +30,8 @@ object Versions {
 
     const val lifecycle = "2.2.0"
 
+    const val viewBindingDelegate = "1.2.0"
+
     const val junit = "4.13.2"
     const val androidJUnit = "1.1.3"
     const val espresso = "3.4.0"
@@ -50,6 +52,7 @@ object Dependencies {
     val hilt = Hilt
     val buildTools = BuildTools
     val navigation = Navigation
+    val viewBindingDelegate = ViewBindingDelegate
 }
 
 object AndroidX {
@@ -114,4 +117,9 @@ object Test {
     val mockk = "io.mockk:mockk:${Versions.mockk}"
     val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     val room = "androidx.room:room-testing:${Versions.room}"
+}
+
+object ViewBindingDelegate {
+    val viewBindingDelegate =
+        "com.github.hoc081098:ViewBindingDelegate:${Versions.viewBindingDelegate}"
 }
