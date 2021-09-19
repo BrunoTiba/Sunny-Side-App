@@ -13,7 +13,7 @@ class WeatherDataSourceImpl @Inject constructor(
 ) : WeatherDataSource {
 
     override suspend fun getCurrentForecastByCityName(cityName: String): Forecast {
-        Timber.d("getCurrentForecastByCityName - cityName: $cityName")
+        Timber.d("getCurrentForecastByCityName - cityName = $cityName")
 
         val forecast = weatherService.getCurrentWeather(cityName)
         return mapper.toRepository(forecast)
