@@ -24,6 +24,9 @@ class ForecastListFragment : Fragment(R.layout.forecast_list_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Timber.d("onViewCreated")
+
         setupRecyclerView()
         observeData()
     }
@@ -35,7 +38,7 @@ class ForecastListFragment : Fragment(R.layout.forecast_list_fragment) {
 
     private fun observeData() {
         viewModel.forecasts.observe(viewLifecycleOwner, { state ->
-            Timber.d("observeData: $state")
+            Timber.d("observeData - state = $state")
             when (state) {
                 ForecastListState.Loading -> showLoading()
                 ForecastListState.Empty -> showEmptyScreen()
