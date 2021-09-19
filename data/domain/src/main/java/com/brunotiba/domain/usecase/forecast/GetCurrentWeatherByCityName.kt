@@ -15,14 +15,14 @@ class GetCurrentWeatherByCityName @Inject constructor(
 ) {
 
     suspend operator fun invoke(name: String): Forecast {
-        Timber.d("name: $name")
+        Timber.d("invoke - name = $name")
 
         val forecast = weatherRepository.getCurrentForecastByCityName(name)
         val location = getLocationFromCityName(name)
         val uv = getCurrentUvByCoordinates(location.latitude, location.longitude)
         val result = forecast.copy(uvIndex = uv)
 
-        Timber.v("forecast: $result")
+        Timber.v("invoke - result = $result")
 
         return result
     }

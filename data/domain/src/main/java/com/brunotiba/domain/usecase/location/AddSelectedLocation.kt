@@ -1,6 +1,7 @@
 package com.brunotiba.domain.usecase.location
 
 import com.brunotiba.domain.repository.SelectedLocationRepository
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -17,6 +18,8 @@ class AddSelectedLocation @Inject constructor(
      * @return the id of the location
      */
     suspend operator fun invoke(locationName: String): Long {
+        Timber.d("invoke - locationName = $locationName")
+
         return locationRepository.addSelectedLocation(locationName)
     }
 }

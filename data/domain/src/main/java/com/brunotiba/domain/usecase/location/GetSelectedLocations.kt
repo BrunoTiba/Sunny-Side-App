@@ -3,6 +3,7 @@ package com.brunotiba.domain.usecase.location
 import com.brunotiba.domain.model.Location
 import com.brunotiba.domain.repository.SelectedLocationRepository
 import kotlinx.coroutines.flow.Flow
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -20,6 +21,8 @@ class GetSelectedLocations @Inject constructor(
      * @return a Flow that emits the list of the selected locations
      */
     suspend operator fun invoke(): Flow<List<Location>> {
+        Timber.d("invoke")
+
         return selectedLocationRepository.getSelectedLocations()
     }
 }
