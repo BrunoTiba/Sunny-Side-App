@@ -19,18 +19,18 @@ class LocalForecastCache @Inject constructor(
 ) : ForecastCache {
 
     override fun getForecastByName(name: String): Forecast? {
-        Timber.d("getForecastByName - name: $name")
+        Timber.d("getForecastByName - name = $name")
 
         val dao = daoProvider.getForecastWithLocationDao()
         val forecast = dao.getForecastsByLocation(name).getOrNull(0)
 
-        Timber.d("getForecastByName - forecast: $forecast")
+        Timber.d("getForecastByName - forecast = $forecast")
 
         return forecast?.let { forecastMapper.toRepo(it) }
     }
 
     override fun insertForecast(forecast: Forecast) {
-        Timber.d("insertForecast - forecast: $forecast")
+        Timber.d("insertForecast - forecast = $forecast")
 
         val forecastWithLocation = forecastMapper.toLocal(forecast)
         val locationId = daoProvider.getLocationDao().insert(forecastWithLocation.location)
@@ -39,7 +39,7 @@ class LocalForecastCache @Inject constructor(
     }
 
     override fun removeForecast(forecast: Forecast) {
-        Timber.d("removeForecast - forecast: $forecast")
+        Timber.d("removeForecast - forecast = $forecast")
 
         val forecastWithLocation = forecastMapper.toLocal(forecast)
         daoProvider.getForecastDao().delete(forecastWithLocation.forecast)
