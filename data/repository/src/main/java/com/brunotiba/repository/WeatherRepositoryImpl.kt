@@ -24,7 +24,7 @@ class WeatherRepositoryImpl @Inject constructor(
 ) : WeatherRepository {
 
     override suspend fun getCurrentForecastByCityName(name: String): DomainForecast {
-        Timber.d("getCurrentForecastByCityName - name: $name")
+        Timber.d("getCurrentForecastByCityName - name = $name")
 
         val forecast: RepoForecast =
             forecastCache.getForecastByName(name) ?: retrieveRemoteForecast(name)
@@ -32,7 +32,7 @@ class WeatherRepositoryImpl @Inject constructor(
     }
 
     private suspend fun retrieveRemoteForecast(name: String): RepoForecast {
-        Timber.d("retrieveRemoteForecast - name: $name")
+        Timber.d("retrieveRemoteForecast - name = $name")
 
         val forecast = weatherDataSource.getCurrentForecastByCityName(name)
         forecastCache.insertForecast(forecast)

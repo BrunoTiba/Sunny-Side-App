@@ -19,7 +19,7 @@ class GetLocationFromCityName @Inject constructor(
      * @return the city location
      */
     suspend operator fun invoke(name: String): Location {
-        Timber.d("name: $name")
+        Timber.d("invoke - name = $name")
 
         return locationRepository.getLocationFromName(name)
     }

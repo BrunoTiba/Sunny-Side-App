@@ -7,6 +7,7 @@ import com.brunotiba.local.provider.DaoProvider
 import com.brunotiba.repository.datasource.SelectedLocationDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import timber.log.Timber
 import com.brunotiba.repository.model.Location as RepoLocation
 import javax.inject.Inject
 
@@ -24,6 +25,7 @@ class SelectedLocationDataSourceImpl @Inject constructor(
 ) : SelectedLocationDataSource {
 
     override fun addSelectedLocation(location: RepoLocation): Long {
+        Timber.d("addSelectedLocation - location = $location")
         val locations = daoProvider.getLocationDao().getLocation(location.name)
 
         return if (locations.isEmpty()) {
@@ -60,6 +62,7 @@ class SelectedLocationDataSourceImpl @Inject constructor(
     }
 
     override fun getSelectedLocations(): Flow<List<RepoLocation>> {
+        Timber.d("getSelectedLocations")
         return daoProvider.getSelectedLocationDao().getSelectedLocations().map { localLocations ->
             localLocations.map { locationMapper.toRepo(it.location) }
         }

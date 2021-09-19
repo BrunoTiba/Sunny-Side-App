@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.brunotiba.forecastlist.model.Forecast
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -31,6 +32,8 @@ class ForecastListAdapter @Inject constructor() : RecyclerView.Adapter<ForecastL
      * @param data the new data
      */
     fun updateData(data: List<Forecast>) {
+        Timber.d("updateData - data = $data")
+
         forecasts.clear()
         forecasts.addAll(data)
         notifyDataSetChanged()

@@ -4,6 +4,7 @@ import com.brunotiba.domain.model.Uv
 import com.brunotiba.domain.repository.UvRepository
 import com.brunotiba.repository.datasource.UvDataSource
 import com.brunotiba.repository.mapper.UvMapper
+import timber.log.Timber
 import javax.inject.Inject
 
 class UvRepositoryImpl @Inject constructor(
@@ -12,6 +13,7 @@ class UvRepositoryImpl @Inject constructor(
 ) : UvRepository {
 
     override suspend fun getCurrentUvByCoordinates(lat: Double, lon: Double): Uv {
+        Timber.d("getCurrentUvByCoordinates - lat = ")
         val uv = uvDataSource.getCurrentUvByCoordinates(lat, lon)
         return uvMapper.toDomain(uv)
     }

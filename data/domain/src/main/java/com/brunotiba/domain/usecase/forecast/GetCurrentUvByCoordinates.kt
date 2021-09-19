@@ -2,6 +2,7 @@ package com.brunotiba.domain.usecase.forecast
 
 import com.brunotiba.domain.model.Uv
 import com.brunotiba.domain.repository.UvRepository
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -17,6 +18,9 @@ class GetCurrentUvByCoordinates @Inject constructor(private val uvRepository: Uv
      *
      * @return the Uv representation
      */
-    suspend operator fun invoke(lat: Double, lon: Double): Uv =
-        uvRepository.getCurrentUvByCoordinates(lat, lon)
+    suspend operator fun invoke(lat: Double, lon: Double): Uv {
+        Timber.d("invoke - lat = $lat, lon = $lon")
+
+        return uvRepository.getCurrentUvByCoordinates(lat, lon)
+    }
 }

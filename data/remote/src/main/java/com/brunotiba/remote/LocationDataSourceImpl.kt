@@ -3,6 +3,7 @@ package com.brunotiba.remote
 import com.brunotiba.remote.api.LocationService
 import com.brunotiba.repository.datasource.LocationDataSource
 import com.brunotiba.repository.model.Location
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -13,6 +14,8 @@ class LocationDataSourceImpl @Inject constructor(
 ) : LocationDataSource {
 
     override suspend fun getLocationFromName(name: String): Location {
+        Timber.d("getLocationFromName - name = $name")
+
         val coords = locationService.getLocationByName(name).first()
         return Location(name = name, latitude = coords.lat, longitude = coords.lon)
     }

@@ -16,7 +16,7 @@ class LocationRepositoryImpl @Inject constructor(
 ) : LocationRepository {
 
     override suspend fun getLocationFromName(name: String): Location {
-        Timber.d("name: $name")
+        Timber.d("getLocationFromName - name = $name")
 
         val location = locationDataSource.getLocationFromName(name)
         return mapper.toDomain(location)
