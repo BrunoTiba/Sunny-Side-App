@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply from: "${rootDir}/config/dependencies/android.gradle"
+apply from: "${rootDir}/config/dependencies/test.gradle"
+
+android {
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation Dependencies.kotlinX.coroutinesCore
+    implementation Dependencies.test.coroutines
+    implementation Dependencies.test.androidJUnit
+    implementation Dependencies.test.runner
+    implementation Dependencies.test.turbine
+}
