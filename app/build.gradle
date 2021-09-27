@@ -25,6 +25,10 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
 
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+
     lintOptions {
         abortOnError true
 

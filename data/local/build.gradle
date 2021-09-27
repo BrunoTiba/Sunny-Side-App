@@ -1,5 +1,6 @@
 apply from: "${rootDir}/config/dependencies/features.gradle"
 apply from: "${rootDir}/config/dependencies/android.gradle"
+apply plugin: 'kotlin-android'
 
 android {
     buildTypes {
@@ -20,13 +21,31 @@ android {
             }
         }
     }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+
+    testOptions {
+        kotlinOptions {
+            freeCompilerArgs += [
+                '-Xopt-in=kotlin.time.ExperimentalTime',
+            ]
+        }
+    }
 }
 
 dependencies {
-    implementation project(':data:repository')
+    implementation project(":data:repository")
+    androidTestImplementation project(":library:test")
+
     implementation Dependencies.room.runtime
     implementation Dependencies.room.kotlinExtensions
     kapt Dependencies.room.kapt
     testImplementation Dependencies.test.junit
     testImplementation Dependencies.test.room
+    androidTestImplementation Dependencies.test.coroutines
+    androidTestImplementation Dependencies.test.androidJUnit
+    androidTestImplementation Dependencies.test.runner
+    androidTestImplementation Dependencies.test.turbine
 }
