@@ -18,7 +18,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
-import java.util.*
+import java.util.Calendar
 import kotlin.jvm.Throws
 
 private const val DELTA = 0.0001
@@ -92,6 +92,28 @@ class ForecastDaoTest {
             assertEquals(forecast3.humidity, result[2].humidity)
             assertEquals(forecast3.windSpeed, result[2].windSpeed, DELTA)
 
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test
+    fun checkIfForecastIsDeleted() = coroutinesTestRule.testDispatcher.runBlockingTest {
+        val forecast =
+            getForecast(cityName = "New York", weather = "rainy", description = "it's a rainy day")
+        dao.insert(forecast)
+
+        dao.getForecasts().test {
+            val result = awaitItem()
+
+            assertEquals(1, result.size)
+            dao.delete(result[0])
+            cancelAndIgnoreRemainingEvents()
+        }
+
+        dao.getForecasts().test {
+            val result = awaitItem()
+
+            assertEquals(0, result.size)
             cancelAndIgnoreRemainingEvents()
         }
     }
