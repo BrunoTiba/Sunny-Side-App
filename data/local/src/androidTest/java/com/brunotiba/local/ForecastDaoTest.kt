@@ -21,8 +21,6 @@ import java.io.IOException
 import java.util.Calendar
 import kotlin.jvm.Throws
 
-private const val DELTA = 0.0001
-
 @RunWith(AndroidJUnit4::class)
 class ForecastDaoTest {
 
@@ -57,9 +55,7 @@ class ForecastDaoTest {
             val result = awaitItem()
 
             assertEquals(1, result.size)
-            assertEquals(forecast.cityName, result[0].cityName)
-            assertEquals(forecast.weather, result[0].weather)
-            assertEquals(forecast.minTemperature, result[0].minTemperature, DELTA)
+            assertEquals(forecast, result[0].copy(id = null))
 
             cancelAndIgnoreRemainingEvents()
         }
@@ -80,17 +76,9 @@ class ForecastDaoTest {
             val result = awaitItem()
 
             assertEquals(3, result.size)
-            assertEquals(forecast1.cityName, result[0].cityName)
-            assertEquals(forecast1.weather, result[0].weather)
-            assertEquals(forecast1.maxTemperature, result[0].maxTemperature, DELTA)
-
-            assertEquals(forecast2.cityName, result[1].cityName)
-            assertEquals(forecast2.description, result[1].description)
-            assertEquals(forecast2.minTemperature, result[1].minTemperature, DELTA)
-
-            assertEquals(forecast3.cityName, result[2].cityName)
-            assertEquals(forecast3.humidity, result[2].humidity)
-            assertEquals(forecast3.windSpeed, result[2].windSpeed, DELTA)
+            assertEquals(forecast1, result[0].copy(id = null))
+            assertEquals(forecast2, result[1].copy(id = null))
+            assertEquals(forecast3, result[2].copy(id = null))
 
             cancelAndIgnoreRemainingEvents()
         }
