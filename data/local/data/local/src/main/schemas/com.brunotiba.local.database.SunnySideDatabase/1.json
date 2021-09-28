@@ -2,17 +2,17 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b335c80b5ebbe6200c59332932fdaed7",
+    "identityHash": "dc48ba099a848ed0f8b11518810b260d",
     "entities": [
       {
         "tableName": "forecast",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`forecast_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `forecast_city_name` TEXT, `forecast_location_id` INTEGER, `forecast_weather` TEXT NOT NULL, `forecast_description` TEXT NOT NULL, `forecast_temperature` REAL NOT NULL, `forecast_feels_like` REAL NOT NULL, `forecast_min_temp` REAL NOT NULL, `forecast_max_temp` REAL NOT NULL, `forecast_pressure` INTEGER NOT NULL, `forecast_humidity` INTEGER NOT NULL, `forecast_wind_speed` REAL NOT NULL, `forecast_wind_direction` INTEGER NOT NULL, `forecast_date` INTEGER NOT NULL, FOREIGN KEY(`forecast_location_id`) REFERENCES `location`(`location_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`forecast_id` INTEGER PRIMARY KEY AUTOINCREMENT, `forecast_city_name` TEXT, `forecast_location_id` INTEGER, `forecast_weather` TEXT NOT NULL, `forecast_description` TEXT NOT NULL, `forecast_temperature` REAL NOT NULL, `forecast_feels_like` REAL NOT NULL, `forecast_min_temp` REAL NOT NULL, `forecast_max_temp` REAL NOT NULL, `forecast_pressure` INTEGER NOT NULL, `forecast_humidity` INTEGER NOT NULL, `forecast_wind_speed` REAL NOT NULL, `forecast_wind_direction` INTEGER NOT NULL, `forecast_date` INTEGER NOT NULL, FOREIGN KEY(`forecast_location_id`) REFERENCES `location`(`location_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "forecast_id",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "cityName",
@@ -209,7 +209,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b335c80b5ebbe6200c59332932fdaed7')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dc48ba099a848ed0f8b11518810b260d')"
     ]
   }
 }
