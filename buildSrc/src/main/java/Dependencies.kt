@@ -3,7 +3,7 @@ object Versions {
     const val targetSdk = 31
     const val compileSdk = 31
     const val buildTools = "30.0.2"
-    const val gradlePlugin = "7.0.1"
+    const val gradlePlugin = "7.0.2"
     const val ktlintGradle = "10.2.0"
 
     const val kotlinVersion = "1.5.30"
