@@ -5,10 +5,12 @@ import androidx.room.Room
 import com.brunotiba.local.database.SunnySideDatabase
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Class responsible for providing database instances.
  */
+@Singleton
 class DatabaseProvider @Inject constructor(@ApplicationContext context: Context) {
 
     val database: SunnySideDatabase =
