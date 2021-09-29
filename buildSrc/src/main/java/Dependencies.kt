@@ -22,6 +22,8 @@ object Versions {
 
     const val coroutines = "1.5.1"
 
+    const val turbine = "0.6.1"
+
     const val room = "2.3.0"
 
     const val timber = "5.0.1"
@@ -34,6 +36,7 @@ object Versions {
 
     const val junit = "4.13.2"
     const val androidJUnit = "1.1.3"
+    const val runner = "1.4.0"
     const val espresso = "3.4.0"
     const val mockk = "1.12.0"
 }
@@ -113,10 +116,12 @@ object Room {
 object Test {
     val junit = "junit:junit:${Versions.junit}"
     val androidJUnit = "androidx.test.ext:junit:${Versions.androidJUnit}"
+    val runner = "androidx.test:runner:${Versions.runner}"
     val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     val mockk = "io.mockk:mockk:${Versions.mockk}"
     val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     val room = "androidx.room:room-testing:${Versions.room}"
+    val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
 }
 
 object ViewBindingDelegate {

@@ -20,10 +20,10 @@ class ForecastMapper @Inject constructor() {
     fun toRepo(forecastWithLocation: ForecastWithLocation): RepoForecast =
         forecastWithLocation.forecast.let { forecast ->
             return RepoForecast(
-                id = forecast.id,
+                id = forecast.id ?: 0,
                 date = forecast.date,
-                latitude = forecastWithLocation.location?.latitude ?: 0.0,
-                longitude = forecastWithLocation.location?.longitude ?: 0.0,
+                latitude = forecastWithLocation.location.latitude ?: 0.0,
+                longitude = forecastWithLocation.location.longitude ?: 0.0,
                 weather = forecast.weather,
                 cityName = forecast.cityName ?: "",
                 description = forecast.description,
