@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_location_fragment_edit_text_hint">Enter the new location name</string>
+</resources>
